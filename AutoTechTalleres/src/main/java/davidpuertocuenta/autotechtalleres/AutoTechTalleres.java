@@ -4,6 +4,10 @@
 
 package davidpuertocuenta.autotechtalleres;
 
+import davidpuertocuenta.autotechtalleres.dao.HibernateUtil;
+import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -11,6 +15,11 @@ package davidpuertocuenta.autotechtalleres;
 public class AutoTechTalleres {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        if(HibernateUtil.getSessionFactory() != null){ 
+            LoginTalleres lt = new LoginTalleres();
+                lt.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "No se ha podido establecer conexión con el servidor.", "Error de conexión", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
