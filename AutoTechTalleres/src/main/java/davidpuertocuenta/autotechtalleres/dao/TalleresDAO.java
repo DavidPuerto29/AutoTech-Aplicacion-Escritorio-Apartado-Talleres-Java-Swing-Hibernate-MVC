@@ -31,4 +31,5 @@ public class TalleresDAO {
                     session.getTransaction().commit();
         }
     }
+   
 }

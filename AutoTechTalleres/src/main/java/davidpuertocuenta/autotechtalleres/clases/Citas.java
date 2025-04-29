@@ -20,6 +20,7 @@ import lombok.Data;
 @NamedQuery(name = "get_todas_citas_matricula", query = "FROM Citas q Where q.vehiculo.matricula = :matricula ORDER BY numeroCita ASC")
 @NamedQuery(name = "get_todas_citas", query = "FROM Citas q")
 @NamedQuery(name = "get_cita", query = "FROM Citas q Where q.numeroCita = :identificacion ")
+@NamedQuery(name = "get_todas_citas_talleres", query = "FROM Citas q Where q.taller= :identificacion ")
 @Data
 public class Citas {
     

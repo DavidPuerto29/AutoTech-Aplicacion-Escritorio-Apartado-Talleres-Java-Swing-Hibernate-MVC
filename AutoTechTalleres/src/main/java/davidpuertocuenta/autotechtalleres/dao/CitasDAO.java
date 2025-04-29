@@ -54,4 +54,14 @@ public class CitasDAO {
         }
     }
     
+        public static List<Citas> obtenerTodasCitasTallerSql(Long tallerIdentificacion){
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<Citas> q = session.createNamedQuery("get_todas_citas_talleres", Citas.class);
+                q.setParameter("identificacion", tallerIdentificacion);
+                    return q.getResultList();
+            } catch (NoResultException e) {
+            return null;
+        }
+    }
+    
 }
