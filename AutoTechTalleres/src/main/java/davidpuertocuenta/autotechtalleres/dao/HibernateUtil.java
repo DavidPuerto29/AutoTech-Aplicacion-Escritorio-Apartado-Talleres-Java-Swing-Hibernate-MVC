@@ -1,4 +1,4 @@
-package com.davidpuertocuenta.autotechtalleres.dao;
+package davidpuertocuenta.autotechtalleres.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
