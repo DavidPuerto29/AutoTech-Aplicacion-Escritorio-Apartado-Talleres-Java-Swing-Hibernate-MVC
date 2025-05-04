@@ -173,7 +173,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     }//GEN-LAST:event_JMenuItemVehículosActionPerformed
 
     private void jMenuItemCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarSesionActionPerformed
-       // controlador.cerrarSesion(this);
+       controlador.cerrarSesion(this);
     }//GEN-LAST:event_jMenuItemCerrarSesionActionPerformed
 
     /**

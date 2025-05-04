@@ -134,7 +134,7 @@ public class TallerControlador {
         tablaCitasVehiculo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tablaCitasVehiculo.getTableHeader().setReorderingAllowed(false);
 
-            List<Citas> citas = new ArrayList(obtenerTodasCitasTallerSql(taller.getNumeroTaller()));
+            List<Citas> citas = new ArrayList(obtenerTodasCitasTallerSql(taller));
            
             for(Citas Cita : citas){
                 Object[] fila = new Object[4];

@@ -5,6 +5,7 @@
 package davidpuertocuenta.autotechtalleres.dao;
 
 import davidpuertocuenta.autotechtalleres.clases.Citas;
+import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
 import jakarta.persistence.NoResultException;
 import java.util.List;
@@ -54,10 +55,10 @@ public class CitasDAO {
         }
     }
     
-        public static List<Citas> obtenerTodasCitasTallerSql(Long tallerIdentificacion){
+        public static List<Citas> obtenerTodasCitasTallerSql(Talleres taller){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Citas> q = session.createNamedQuery("get_todas_citas_talleres", Citas.class);
-                q.setParameter("identificacion", tallerIdentificacion);
+                q.setParameter("identificacion", taller);
                     return q.getResultList();
             } catch (NoResultException e) {
             return null;
