@@ -5,9 +5,6 @@
 package davidpuertocuenta.autotechtalleres.clases;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
@@ -30,9 +27,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @EqualsAndHashCode(callSuper=false)
 public class UsuariosTalleres extends Usuarios{
-        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long idEmpleado;
-        
         @ManyToOne
         @JoinColumn(name  = "Taller")
         private Talleres taller;

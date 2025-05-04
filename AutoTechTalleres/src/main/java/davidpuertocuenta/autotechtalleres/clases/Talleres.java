@@ -35,7 +35,7 @@ public class Talleres {
     private String cif;
     private String localidad;
     
-    @OneToMany(mappedBy = "UsuariosTalleres", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "taller", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<UsuariosTalleres> usuarios;
     
     public Talleres(String nombre, String direccion, String codigoPostal, String teléfono, String cif, String localidad) {
