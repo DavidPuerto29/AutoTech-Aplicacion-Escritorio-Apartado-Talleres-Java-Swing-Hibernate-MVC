@@ -50,7 +50,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         jMenuClientes = new javax.swing.JMenu();
         JMenuItemCancelarCita = new javax.swing.JMenuItem();
         Vehículos = new javax.swing.JMenu();
-        JMenuItemVehículos = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItemCerrarSesion = new javax.swing.JMenuItem();
 
@@ -129,15 +129,8 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         Vehículos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Vehículos.setPreferredSize(new java.awt.Dimension(100, 40));
 
-        JMenuItemVehículos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        JMenuItemVehículos.setText("Mis Vehículos");
-        JMenuItemVehículos.setToolTipText("");
-        JMenuItemVehículos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMenuItemVehículosActionPerformed(evt);
-            }
-        });
-        Vehículos.add(JMenuItemVehículos);
+        jMenuItem1.setText("Ver información del vehículo");
+        Vehículos.add(jMenuItem1);
 
         jMenuBar1.add(Vehículos);
 
@@ -167,10 +160,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     private void JMenuItemCancelarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItemCancelarCitaActionPerformed
       //  controlador.cancelarCitas(tablaCitasVehiculo, vehiculo, this);
     }//GEN-LAST:event_JMenuItemCancelarCitaActionPerformed
-
-    private void JMenuItemVehículosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItemVehículosActionPerformed
-       // controlador.vistaVehiculos(this, cliente);
-    }//GEN-LAST:event_JMenuItemVehículosActionPerformed
 
     private void jMenuItemCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarSesionActionPerformed
        controlador.cerrarSesion(this);
@@ -214,12 +203,12 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CabeceraVehiculos;
     private javax.swing.JMenuItem JMenuItemCancelarCita;
-    private javax.swing.JMenuItem JMenuItemVehículos;
     private javax.swing.JMenu Vehículos;
     private javax.swing.JLabel fondoPantalla;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuClientes;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCerrarSesion;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCitasDelVehiculo;
