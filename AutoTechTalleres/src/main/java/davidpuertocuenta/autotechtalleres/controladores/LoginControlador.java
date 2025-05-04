@@ -6,7 +6,9 @@ package davidpuertocuenta.autotechtalleres.controladores;
 
 import static davidpuertocuenta.autotechtalleres.cartografia.CifradoSHA256.verificarContraseña;
 import davidpuertocuenta.autotechtalleres.clases.Usuarios;
-import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorUsuarioSql;
+import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
+import static davidpuertocuenta.autotechtalleres.dao.UsuariosTalleresDAO.obtenerUsuarioTallerPorUsuarioSql;
+import davidpuertocuenta.autotechtalleres.vistas.talleres.VistaCitasTaller;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -24,12 +26,15 @@ public class LoginControlador {
     }
     
     public void iniciarSesionUsuarios(String usuario, char[] contrasena, JFrame vista){
-        Usuarios usuarios = obtenerUsuarioPorUsuarioSql(usuario);
+        UsuariosTalleres usuarioTaller = obtenerUsuarioTallerPorUsuarioSql(usuario);
         
-        if(comprobacionAutenticacionUsuario(usuarios, String.valueOf(contrasena))){
+        if(comprobacionAutenticacionUsuario(usuarioTaller, String.valueOf(contrasena))){
             //Se limpia el array para aumentar la seguridad.
             java.util.Arrays.fill(contrasena, '\0');
                //VISTA TALLERES TODO
+               VistaCitasTaller vct = new VistaCitasTaller(usuarioTaller.getTaller());
+                    vct.setVisible(true);
+                        vista.dispose();
         }else{
             //Se limpia el array para aumentar la seguridad.
             java.util.Arrays.fill(contrasena, '\0');

@@ -4,10 +4,17 @@
  */
 package davidpuertocuenta.autotechtalleres.controladores;
 
+import davidpuertocuenta.autotechtalleres.clases.Citas;
+import davidpuertocuenta.autotechtalleres.clases.Talleres;
+import davidpuertocuenta.autotechtalleres.clases.Usuarios;
+import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
+import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerTodosVehiculosClienteSql;
+import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerVehiculoMatriculaSql;
+import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerTodasCitasTallerSql;
+import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -27,7 +34,7 @@ public class TallerControlador {
     
     public void cerrarSesion(JFrame vista){
         if(JOptionPane.showOptionDialog(vista, "¿Desea cerrar sesíon?", "Cerrar Sesíon", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] { "Sí", "No"},"No") == JOptionPane.YES_OPTION){
-            LoginClientes login = new LoginClientes();
+            LoginTalleres login = new LoginTalleres();
                 login.setVisible(true);
                     vista.dispose();
         }
@@ -114,8 +121,8 @@ public class TallerControlador {
             }
     }
     
-    public void crearTablaCitasTaller(JTable tablaCitasVehiculo, Vehiculos vehiculo){
-        Object[] cabecera = new Object[]{"Número de cita","Fecha","Vehiculo","Taller"}; 
+    public void crearTablaCitasTaller(JTable tablaCitasVehiculo, Talleres taller){
+        Object[] cabecera = new Object[]{"Número de cita","Fecha","Vehiculo","Estado De Cita"}; 
         DefaultTableModel miModelo = new DefaultTableModel(cabecera, 0){
             //Edicion de celdas deshabilida.
             @Override
@@ -127,14 +134,14 @@ public class TallerControlador {
         tablaCitasVehiculo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tablaCitasVehiculo.getTableHeader().setReorderingAllowed(false);
 
-            List<Citas> citas = new ArrayList(obtenerTodasCitasMatriculaSql(vehiculo));
+            List<Citas> citas = new ArrayList(obtenerTodasCitasTallerSql(taller.getNumeroTaller()));
            
             for(Citas Cita : citas){
                 Object[] fila = new Object[4];
                 fila[0] = Cita.getNumeroCita();
                 fila[1] = Cita.getFecha();
                 fila[2] = Cita.getVehiculo().getMatricula();
-                fila[3] = Cita.getTaller();
+                fila[3] = Cita.getEstadoCita();//TODO
                     miModelo.addRow(fila);
             } 
             
@@ -155,10 +162,10 @@ public class TallerControlador {
             columnaAnoVehiculo.setMaxWidth(600);
             columnaAnoVehiculo.setPreferredWidth(300); 
             
-            TableColumn columnaTaller = tablaCitasVehiculo.getColumn("Taller");
-            columnaTaller.setMinWidth(100);
-            columnaTaller.setMaxWidth(600);
-            columnaTaller.setPreferredWidth(300); 
+            TableColumn columnaEstadoCita = tablaCitasVehiculo.getColumn("Estado De Cita");
+            columnaEstadoCita.setMinWidth(100);
+            columnaEstadoCita.setMaxWidth(600);
+            columnaEstadoCita.setPreferredWidth(300); 
             
             DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
             centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -168,43 +175,6 @@ public class TallerControlador {
                 tablaCitasVehiculo.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
                     tablaCitasVehiculo.getColumnModel().getColumn(i).setResizable(false);
             }
-    }
-    
-    
-    public void eliminarVehiculo(JTable tablaVehiculos, Usuarios usuario, JFrame vista){
-        try{
-            Vehiculos vehiculo = obtenerVehiculoMatriculaSql((String) tablaVehiculos.getValueAt(tablaVehiculos.getSelectedRow(), 0));
-                if(vehiculo == null){
-                    JOptionPane.showMessageDialog(vista, "El vehículo no ha sido encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                    if(JOptionPane.showOptionDialog(vista, "¿Esta seguro de realizar esta opción?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] { "Sí", "No"},"No") == JOptionPane.YES_OPTION){
-                        eliminarVehiculoSql(vehiculo);
-                    }else{
-                        JOptionPane.showMessageDialog(vista, "Operación cancelada.", "Información", JOptionPane.INFORMATION_MESSAGE);
-                    }
-        }catch (ArrayIndexOutOfBoundsException e){
-            JOptionPane.showMessageDialog(vista, "Debe seleccionar un vehículo de la lista.", "Información", JOptionPane.INFORMATION_MESSAGE);
-        }
-        //Siempre al finalizar actualiza la tabla.
-        crearTablaVehiculos(tablaVehiculos, usuario);
-    }
-    
-    public void cancelarCitas(JTable tablaCitasVehiculo, Vehiculos vehiculo, JFrame vista){
-         try{
-            Citas cita = obtenerCitaPorNumeroSql((Long) tablaCitasVehiculo.getValueAt(tablaCitasVehiculo.getSelectedRow(), 0));
-                if(vehiculo == null){
-                    JOptionPane.showMessageDialog(vista, "La cita no ha sido encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                if(JOptionPane.showOptionDialog(vista, "¿Esta seguro de realizar esta opción?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] { "Sí", "No"},"No") == JOptionPane.YES_OPTION){
-                    eliminarCitaSql(cita);
-                }else{
-                    JOptionPane.showMessageDialog(vista, "Operación cancelada.", "Información", JOptionPane.INFORMATION_MESSAGE);
-                }
-         }catch (ArrayIndexOutOfBoundsException e){
-            JOptionPane.showMessageDialog(vista, "Debe seleccionar una cita de la lista.", "Información", JOptionPane.INFORMATION_MESSAGE);
-         }
-         //Siempre al finalizar actualiza la tabla.
-         crearTablaCitas(tablaCitasVehiculo, vehiculo);
     }
     
 }

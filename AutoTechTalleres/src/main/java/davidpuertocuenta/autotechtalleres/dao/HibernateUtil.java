@@ -1,5 +1,10 @@
 package davidpuertocuenta.autotechtalleres.dao;
 
+import davidpuertocuenta.autotechtalleres.clases.Citas;
+import davidpuertocuenta.autotechtalleres.clases.Talleres;
+import davidpuertocuenta.autotechtalleres.clases.Usuarios;
+import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
+import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -21,8 +26,13 @@ public class HibernateUtil {
         if (sessionFactory == null) {
             try (StandardServiceRegistry registry = new
                     StandardServiceRegistryBuilder().build();) {
+                         
                 sessionFactory = new MetadataSources(registry)
-                        //.addAnnotatedClass(Citas.class)
+                        .addAnnotatedClass(Citas.class)
+                        .addAnnotatedClass(Talleres.class)
+                        .addAnnotatedClass(UsuariosTalleres.class)
+                        .addAnnotatedClass(Vehiculos.class)
+                        .addAnnotatedClass(Usuarios.class)
                         .buildMetadata().buildSessionFactory();
             } catch (Exception e) {
                 e.printStackTrace();

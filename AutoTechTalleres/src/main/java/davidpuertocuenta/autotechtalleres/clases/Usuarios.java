@@ -6,14 +6,18 @@ package davidpuertocuenta.autotechtalleres.clases;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import java.util.List;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -24,9 +28,12 @@ import lombok.Data;
 @NamedQuery(name = "get_usuario_login", query = "FROM Usuarios p WHERE p.usuario = :username AND p.contrasena = :password")
 @NamedQuery(name = "get_usuario", query = "FROM Usuarios p WHERE p.usuario = :username")
 @NamedQuery(name = "get_todos_usuarios", query = "FROM Usuarios q ORDER BY q.usuario ASC")
+@NoArgsConstructor
 @Data
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Usuarios {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCliente;
     @Column(unique = true)
     private String usuario;
@@ -41,7 +48,7 @@ public class Usuarios {
     private String direccion;
     private boolean administrador;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Vehiculos> vehiculos;
     
     public Usuarios(String usuario, String contrasena, String randomizador, String dni, String nombre, String apellidos, String correoElectronico, String numeroTelefono, String direccion, boolean administrador) {

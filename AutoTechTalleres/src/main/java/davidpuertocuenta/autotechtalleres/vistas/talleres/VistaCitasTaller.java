@@ -4,6 +4,7 @@
  */
 package davidpuertocuenta.autotechtalleres.vistas.talleres;
 
+import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.controladores.TallerControlador;
 
 /**
@@ -11,6 +12,7 @@ import davidpuertocuenta.autotechtalleres.controladores.TallerControlador;
  * @author David Puerto Cuenca
  */
 public class VistaCitasTaller extends javax.swing.JFrame {
+    private Talleres taller;
     private TallerControlador controlador = new TallerControlador();
     /**
      * Creates new form VistaCitasTaller
@@ -18,6 +20,14 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     public VistaCitasTaller() {
         initComponents();
         setExtendedState(VistaCitasTaller.MAXIMIZED_BOTH);
+        controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
+        controlador.colocarCerrarSesion(jMenuBar1, jMenu5); 
+    }
+    
+    public VistaCitasTaller(Talleres taller) {
+        initComponents();
+        setExtendedState(VistaCitasTaller.MAXIMIZED_BOTH);
+        this.taller = taller;
         controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
         controlador.colocarCerrarSesion(jMenuBar1, jMenu5); 
     }

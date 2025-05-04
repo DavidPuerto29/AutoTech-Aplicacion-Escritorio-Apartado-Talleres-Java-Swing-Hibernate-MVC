@@ -4,6 +4,7 @@
  */
 package davidpuertocuenta.autotechtalleres.clases;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
 import java.util.Date;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -21,7 +23,9 @@ import lombok.Data;
 @NamedQuery(name = "get_todas_citas", query = "FROM Citas q")
 @NamedQuery(name = "get_cita", query = "FROM Citas q Where q.numeroCita = :identificacion ")
 @NamedQuery(name = "get_todas_citas_talleres", query = "FROM Citas q Where q.taller= :identificacion ")
+@NoArgsConstructor
 @Data
+@Entity
 public class Citas {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
