@@ -40,6 +40,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCitasTaller = new javax.swing.JTable();
@@ -48,6 +49,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         fondoPantalla = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuClientes = new javax.swing.JMenu();
+        jMenuItemCambiarEstadoCita = new javax.swing.JMenuItem();
         JMenuItemCancelarCita = new javax.swing.JMenuItem();
         Vehículos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -55,7 +57,11 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         jMenuItemCerrarSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setTitle("Vista General");
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(700, 500));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tablaCitasTaller.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,22 +84,53 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaCitasTaller);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 90, 1900, 940);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1884;
+        gridBagConstraints.ipady = 920;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        getContentPane().add(jScrollPane1, gridBagConstraints);
 
         labelCitasDelVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         labelCitasDelVehiculo.setForeground(new java.awt.Color(255, 255, 255));
         labelCitasDelVehiculo.setText("Citas Del Taller");
-        getContentPane().add(labelCitasDelVehiculo);
-        labelCitasDelVehiculo.setBounds(30, 0, 510, 80);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 196;
+        gridBagConstraints.ipady = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 0);
+        getContentPane().add(labelCitasDelVehiculo, gridBagConstraints);
 
         CabeceraVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cliente/cabecera_vehiculos_prov.jpg"))); // NOI18N
-        getContentPane().add(CabeceraVehiculos);
-        CabeceraVehiculos.setBounds(20, 10, 1900, 66);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = -66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        getContentPane().add(CabeceraVehiculos, gridBagConstraints);
 
         fondoPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_vistaGeneral_prov.jpg"))); // NOI18N
-        getContentPane().add(fondoPantalla);
-        fondoPantalla.setBounds(0, 0, 1920, 1030);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = -80;
+        gridBagConstraints.ipady = -201;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(fondoPantalla, gridBagConstraints);
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,6 +147,10 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         jMenuClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenuClientes.setMinimumSize(new java.awt.Dimension(50, 22));
         jMenuClientes.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jMenuItemCambiarEstadoCita.setText("Cambiar Estado");
+        jMenuItemCambiarEstadoCita.setToolTipText("");
+        jMenuClientes.add(jMenuItemCambiarEstadoCita);
 
         JMenuItemCancelarCita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         JMenuItemCancelarCita.setText("Cancelar");
@@ -209,6 +250,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuClientes;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemCambiarEstadoCita;
     private javax.swing.JMenuItem jMenuItemCerrarSesion;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCitasDelVehiculo;
