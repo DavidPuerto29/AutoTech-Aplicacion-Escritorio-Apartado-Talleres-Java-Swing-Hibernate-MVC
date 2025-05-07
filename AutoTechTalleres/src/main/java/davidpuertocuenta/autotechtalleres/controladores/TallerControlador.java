@@ -9,7 +9,6 @@ import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.clases.Usuarios;
 import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
 import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerTodosVehiculosClienteSql;
-import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerVehiculoMatriculaSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerTodasCitasTallerSql;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
 import java.util.ArrayList;
@@ -121,8 +120,8 @@ public class TallerControlador {
             }
     }
     
-    public void crearTablaCitasTaller(JTable tablaCitasVehiculo, Talleres taller){
-        Object[] cabecera = new Object[]{"Número de cita","Fecha","Vehiculo","Estado De Cita"}; 
+    public void crearTablaCitasTaller(JTable tablaCitas, Talleres taller){
+                Object[] cabecera = new Object[]{"Numero De Cita", "Fecha", "Descripción", "Matrícula", "Cliente", "Estado"}; 
         DefaultTableModel miModelo = new DefaultTableModel(cabecera, 0){
             //Edicion de celdas deshabilida.
             @Override
@@ -130,50 +129,68 @@ public class TallerControlador {
                 return false;  
             }
         };
-        tablaCitasVehiculo.setModel(miModelo);
-        tablaCitasVehiculo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tablaCitasVehiculo.getTableHeader().setReorderingAllowed(false);
-
+        tablaCitas.setModel(miModelo);
+        tablaCitas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tablaCitas.getTableHeader().setReorderingAllowed(false);
+                
             List<Citas> citas = new ArrayList(obtenerTodasCitasTallerSql(taller));
            
-            for(Citas Cita : citas){
-                Object[] fila = new Object[4];
-                fila[0] = Cita.getNumeroCita();
-                fila[1] = Cita.getFecha();
-                fila[2] = Cita.getVehiculo().getMatricula();
-                fila[3] = Cita.getEstadoCita();//TODO
+            for(Citas cita : citas){
+                Object[] fila = new Object[6];
+                fila[0] = cita.getNumeroCita();
+                fila[1] = cita.getFecha();
+                fila[2] = cita.getDescripcion();
+                fila[3] = cita.getVehiculo().getMatricula();
+                fila[4] = cita.getVehiculo().getCliente().getNombre();
+                switch(cita.getEstadoCita()){
+                    case 1 -> fila[5] = "Pendiente ";
+                    case 2 -> fila[5] = "En proceso ";
+                    case 3 -> fila[5] = "Listo para recoger ";
+                    case 4 -> fila[5] = "Finalizada  ";
+                        default -> fila[5] = "Error";
+                }
                     miModelo.addRow(fila);
-            } 
-            
+            }
+         
             //Dimensiones de la tabla.
-            tablaCitasVehiculo.setRowHeight(40);
-            TableColumn columnaNumeroCita = tablaCitasVehiculo.getColumn("Número de cita");
+            tablaCitas.setRowHeight(40);
+            TableColumn columnaNumeroCita = tablaCitas.getColumn("Numero De Cita");
             columnaNumeroCita.setMinWidth(100);
             columnaNumeroCita.setMaxWidth(600);
             columnaNumeroCita.setPreferredWidth(300); 
             
-            TableColumn columnaFecha = tablaCitasVehiculo.getColumn("Fecha");
+            TableColumn columnaFecha = tablaCitas.getColumn("Fecha");
             columnaFecha.setMinWidth(100);
             columnaFecha.setMaxWidth(600);
             columnaFecha.setPreferredWidth(300); 
+           
+            TableColumn columnaDescripcionr = tablaCitas.getColumn("Descripción");
+            columnaDescripcionr.setMinWidth(100);
+            columnaDescripcionr.setMaxWidth(600);
+            columnaDescripcionr.setPreferredWidth(300); 
             
-            TableColumn columnaAnoVehiculo = tablaCitasVehiculo.getColumn("Vehiculo");
-            columnaAnoVehiculo.setMinWidth(100);
-            columnaAnoVehiculo.setMaxWidth(600);
-            columnaAnoVehiculo.setPreferredWidth(300); 
+            TableColumn columnaMatricula = tablaCitas.getColumn("Matrícula");
+            columnaMatricula.setMinWidth(100);
+            columnaMatricula.setMaxWidth(600);
+            columnaMatricula.setPreferredWidth(300);
             
-            TableColumn columnaEstadoCita = tablaCitasVehiculo.getColumn("Estado De Cita");
-            columnaEstadoCita.setMinWidth(100);
-            columnaEstadoCita.setMaxWidth(600);
-            columnaEstadoCita.setPreferredWidth(300); 
+            TableColumn columnaCliente = tablaCitas.getColumn("Cliente");
+            columnaCliente.setMinWidth(100);
+            columnaCliente.setMaxWidth(600);
+            columnaCliente.setPreferredWidth(300);
+            
+            TableColumn columnaEstado = tablaCitas.getColumn("Estado");
+            columnaEstado.setMinWidth(100);
+            columnaEstado.setMaxWidth(600);
+            columnaEstado.setPreferredWidth(300);
             
             DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
             centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-            tablaCitasVehiculo.getTableHeader().setResizingAllowed(false);
+            tablaCitas.getTableHeader().setResizingAllowed(false);
             //Usado para centrar el texto de las celdas.
-            for (int i = 0; i < tablaCitasVehiculo.getColumnCount(); i++) {
-                tablaCitasVehiculo.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-                    tablaCitasVehiculo.getColumnModel().getColumn(i).setResizable(false);
+            for (int i = 0; i < tablaCitas.getColumnCount(); i++) {
+                tablaCitas.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+                    tablaCitas.getColumnModel().getColumn(i).setResizable(false);
             }
     }
     

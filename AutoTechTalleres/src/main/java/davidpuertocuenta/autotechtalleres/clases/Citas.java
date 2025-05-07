@@ -37,12 +37,14 @@ public class Citas {
     @ManyToOne
     @JoinColumn(name = "taller", referencedColumnName = "numeroTaller")
     private Talleres taller;
+    private String descripcion;
     private int estadoCita;
 
-    public Citas(Date fecha, Vehiculos vehiculo, Talleres taller, int estadoCita) {
+    public Citas(Date fecha, Vehiculos vehiculo, Talleres taller, String motivo, int estadoCita) {
         this.fecha = fecha;
         this.vehiculo = vehiculo;
         this.taller = taller;
+        this.descripcion = motivo;
         this.estadoCita = estadoCita;
     }
 
