@@ -232,7 +232,7 @@ public class LoginTalleres extends javax.swing.JFrame {
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
-    //   controlador.vistaRegistroUsuarios(this);
+      controlador.vistaRegistroUsuarios(this);
     }//GEN-LAST:event_botonRegistroActionPerformed
 
     private void botonMostrarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarContrasenaActionPerformed
