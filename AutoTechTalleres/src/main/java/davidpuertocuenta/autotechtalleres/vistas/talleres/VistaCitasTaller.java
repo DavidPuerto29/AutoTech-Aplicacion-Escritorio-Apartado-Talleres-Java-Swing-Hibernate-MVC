@@ -44,6 +44,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCitasTaller = new javax.swing.JTable();
+        botonRefrescar = new javax.swing.JButton();
         labelCitasDelVehiculo = new javax.swing.JLabel();
         CabeceraVehiculos = new javax.swing.JLabel();
         fondoPantalla = new javax.swing.JLabel();
@@ -86,8 +87,8 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1884;
         gridBagConstraints.ipady = 920;
@@ -97,13 +98,28 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
+        botonRefrescar.setBackground(new java.awt.Color(255, 255, 255));
+        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar_prov .png"))); // NOI18N
+        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRefrescarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 54;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 1260, 0, 0);
+        getContentPane().add(botonRefrescar, gridBagConstraints);
+
         labelCitasDelVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         labelCitasDelVehiculo.setForeground(new java.awt.Color(255, 255, 255));
         labelCitasDelVehiculo.setText("Citas Del Taller");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.ipadx = 196;
         gridBagConstraints.ipady = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -114,7 +130,8 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.ipady = -66;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -125,8 +142,8 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 4;
         gridBagConstraints.ipadx = -80;
         gridBagConstraints.ipady = -201;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -206,6 +223,10 @@ public class VistaCitasTaller extends javax.swing.JFrame {
        controlador.cerrarSesion(this);
     }//GEN-LAST:event_jMenuItemCerrarSesionActionPerformed
 
+    private void botonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRefrescarActionPerformed
+        controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
+    }//GEN-LAST:event_botonRefrescarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,6 +266,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     private javax.swing.JLabel CabeceraVehiculos;
     private javax.swing.JMenuItem JMenuItemCancelarCita;
     private javax.swing.JMenu Vehículos;
+    private javax.swing.JButton botonRefrescar;
     private javax.swing.JLabel fondoPantalla;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
