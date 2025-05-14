@@ -31,18 +31,18 @@ public class Talleres {
     private String nombre;
     private String direccion;
     private String codigoPostal;
-    private String teléfono;
+    private String telefono;
     private String cif;
     private String localidad;
     
     @OneToMany(mappedBy = "taller", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<UsuariosTalleres> usuarios;
     
-    public Talleres(String nombre, String direccion, String codigoPostal, String teléfono, String cif, String localidad) {
+    public Talleres(String nombre, String direccion, String codigoPostal, String telefono, String cif, String localidad) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.codigoPostal = codigoPostal;
-        this.teléfono = teléfono;
+        this.telefono = telefono;
         this.cif = cif;
         this.localidad = localidad;
     }
