@@ -8,12 +8,17 @@ import davidpuertocuenta.autotechtalleres.clases.Citas;
 import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.clases.Usuarios;
 import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
+import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.actualizarCitaSql;
+import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerCitaPorNumeroSql;
 import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerTodosVehiculosClienteSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerTodasCitasTallerSql;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
+import davidpuertocuenta.autotechtalleres.vistas.talleres.dialogCambiarEstadoCita;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -192,6 +197,28 @@ public class TallerControlador {
                 tablaCitas.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
                     tablaCitas.getColumnModel().getColumn(i).setResizable(false);
             }
+    }
+    
+    public void cargarEstadoCitaComboBox(JComboBox comboBoxEstadoCita, Citas cita){
+        comboBoxEstadoCita.removeAllItems(); 
+            comboBoxEstadoCita.addItem("Pendiente"); 
+            comboBoxEstadoCita.addItem("En proceso"); 
+            comboBoxEstadoCita.addItem("Listo para recoger"); 
+            comboBoxEstadoCita.addItem("Finalizada"); 
+                comboBoxEstadoCita.setSelectedIndex(cita.getEstadoCita());
+                            //Se añade uno para evitar que el JComboBox se descuadre debido al array.
+                           comboBoxEstadoCita.setSelectedIndex(cita.getEstadoCita() - 1);
+    }
+    
+    public void modificarEstadoCita(Citas cita, JComboBox comboBoxEstadoCita, JDialog vista){
+        cita.setEstadoCita(comboBoxEstadoCita.getSelectedIndex() - 1);
+            actualizarCitaSql(cita);
+                vista.dispose();
+    }
+    
+    public void vistaDialogCamiarEstado(JFrame vista, JTable tablaCitasTaller){
+        dialogCambiarEstadoCita ec = new dialogCambiarEstadoCita(vista, true, obtenerCitaPorNumeroSql((Long) tablaCitasTaller.getValueAt(tablaCitasTaller.getSelectedRow(), 0)));
+            ec.setVisible(true);
     }
     
 }

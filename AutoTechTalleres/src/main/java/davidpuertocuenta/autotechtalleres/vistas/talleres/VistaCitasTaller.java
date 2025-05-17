@@ -6,6 +6,7 @@ package davidpuertocuenta.autotechtalleres.vistas.talleres;
 
 import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.controladores.TallerControlador;
+import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerCitaPorNumeroSql;
 
 /**
  *
@@ -167,6 +168,11 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
         jMenuItemCambiarEstadoCita.setText("Cambiar Estado");
         jMenuItemCambiarEstadoCita.setToolTipText("");
+        jMenuItemCambiarEstadoCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCambiarEstadoCitaActionPerformed(evt);
+            }
+        });
         jMenuClientes.add(jMenuItemCambiarEstadoCita);
 
         JMenuItemCancelarCita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -226,6 +232,10 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     private void botonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRefrescarActionPerformed
         controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
     }//GEN-LAST:event_botonRefrescarActionPerformed
+
+    private void jMenuItemCambiarEstadoCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCambiarEstadoCitaActionPerformed
+        controlador.vistaDialogCamiarEstado(this, tablaCitasTaller);
+    }//GEN-LAST:event_jMenuItemCambiarEstadoCitaActionPerformed
 
     /**
      * @param args the command line arguments
