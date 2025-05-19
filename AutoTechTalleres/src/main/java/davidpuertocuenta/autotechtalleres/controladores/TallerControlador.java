@@ -9,6 +9,7 @@ import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.clases.Usuarios;
 import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.actualizarCitaSql;
+import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.eliminarCitaSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerCitaPorNumeroSql;
 import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerTodosVehiculosClienteSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerTodasCitasTallerSql;
@@ -49,80 +50,6 @@ public class TallerControlador {
         jMenuBar1.remove(jMenu5);
         jMenuBar1.add(Box.createHorizontalGlue());
         jMenuBar1.add(jMenu5);
-    }
-    
-    public void crearTablaVehiculos(JTable tablaVehiculos, Usuarios usuario){
-        Object[] cabecera = new Object[]{"Matrícula", "Marca", "Modelo", "Año De Matriculación", "Color", "Citas Reservadas", "Número De Bastidor"}; 
-        DefaultTableModel miModelo = new DefaultTableModel(cabecera, 0){
-            //Edicion de celdas deshabilida.
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;  
-            }
-        };
-        tablaVehiculos.setModel(miModelo);
-        tablaVehiculos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tablaVehiculos.getTableHeader().setReorderingAllowed(false);
-
-            List<Vehiculos> vehiculos = new ArrayList(obtenerTodosVehiculosClienteSql(usuario));
-           
-            for(Vehiculos Vehiculo : vehiculos){
-                Object[] fila = new Object[7];
-                fila[0] = Vehiculo.getMatricula();
-                fila[1] = Vehiculo.getMarca();
-                fila[2] = Vehiculo.getModelo();
-                fila[3] = Vehiculo.getAnoMatriculacion();
-                fila[4] = Vehiculo.getColor();
-                fila[5] = Vehiculo.getCitas().size();
-                fila[6] = Vehiculo.getNumeroBastidor();
-                    miModelo.addRow(fila);
-            }
-         
-            //Dimensiones de la tabla.
-            tablaVehiculos.setRowHeight(40);
-            TableColumn columnaMatricula = tablaVehiculos.getColumn("Matrícula");
-            columnaMatricula.setMinWidth(100);
-            columnaMatricula.setMaxWidth(600);
-            columnaMatricula.setPreferredWidth(300); 
-            
-            TableColumn columnaMarca = tablaVehiculos.getColumn("Marca");
-            columnaMarca.setMinWidth(100);
-            columnaMarca.setMaxWidth(600);
-            columnaMarca.setPreferredWidth(300); 
-            
-            TableColumn columnaModelo = tablaVehiculos.getColumn("Modelo");
-            columnaModelo.setMinWidth(100);
-            columnaModelo.setMaxWidth(600);
-            columnaModelo.setPreferredWidth(300); 
-            
-            TableColumn columnaAnoMatriculacion = tablaVehiculos.getColumn("Año De Matriculación");
-            columnaAnoMatriculacion.setMinWidth(100);
-            columnaAnoMatriculacion.setMaxWidth(600);
-            columnaAnoMatriculacion.setPreferredWidth(300); 
-            
-            TableColumn columnaColor = tablaVehiculos.getColumn("Color");
-            columnaColor.setMinWidth(100);
-            columnaColor.setMaxWidth(600);
-            columnaColor.setPreferredWidth(300); 
-            
-            TableColumn columnaCitas = tablaVehiculos.getColumn("Citas Reservadas");
-            columnaCitas.setMinWidth(100);
-            columnaCitas.setMaxWidth(600);
-            columnaCitas.setPreferredWidth(300);
-            
-            TableColumn columnaBastidor = tablaVehiculos.getColumn("Número De Bastidor");
-            columnaBastidor.setMinWidth(100);
-            columnaBastidor.setMaxWidth(600);
-            columnaBastidor.setPreferredWidth(300); 
-            
-            DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-            centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-            tablaVehiculos.getTableHeader().setResizingAllowed(false);
-            //Usado para centrar el texto de las celdas.
-            for (int i = 0; i < tablaVehiculos.getColumnCount(); i++) {
-                tablaVehiculos.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-                    tablaVehiculos.getColumnModel().getColumn(i).setResizable(false);
-            }
     }
     
     public void crearTablaCitasTaller(JTable tablaCitas, Talleres taller){
@@ -205,20 +132,42 @@ public class TallerControlador {
             comboBoxEstadoCita.addItem("En proceso"); 
             comboBoxEstadoCita.addItem("Listo para recoger"); 
             comboBoxEstadoCita.addItem("Finalizada"); 
-                comboBoxEstadoCita.setSelectedIndex(cita.getEstadoCita());
+            comboBoxEstadoCita.addItem("Error"); 
                             //Se añade uno para evitar que el JComboBox se descuadre debido al array.
                            comboBoxEstadoCita.setSelectedIndex(cita.getEstadoCita() - 1);
     }
     
     public void modificarEstadoCita(Citas cita, JComboBox comboBoxEstadoCita, JDialog vista){
-        cita.setEstadoCita(comboBoxEstadoCita.getSelectedIndex() - 1);
+        cita.setEstadoCita(comboBoxEstadoCita.getSelectedIndex() + 1);
             actualizarCitaSql(cita);
                 vista.dispose();
     }
     
     public void vistaDialogCamiarEstado(JFrame vista, JTable tablaCitasTaller){
-        dialogCambiarEstadoCita ec = new dialogCambiarEstadoCita(vista, true, obtenerCitaPorNumeroSql((Long) tablaCitasTaller.getValueAt(tablaCitasTaller.getSelectedRow(), 0)));
-            ec.setVisible(true);
+        try{
+            dialogCambiarEstadoCita ec = new dialogCambiarEstadoCita(vista, true, obtenerCitaPorNumeroSql((Long) tablaCitasTaller.getValueAt(tablaCitasTaller.getSelectedRow(), 0)));
+                ec.setVisible(true);
+        }catch (ArrayIndexOutOfBoundsException e){
+              JOptionPane.showMessageDialog(vista, "Debe seleccionar una cita de la lista.", "Información", JOptionPane.INFORMATION_MESSAGE);
+         }
     }
     
+    public void eliminarCita(JTable tablaCitasTaller, JFrame vista, Talleres taller){
+        try{
+            Citas cita = obtenerCitaPorNumeroSql((Long) tablaCitasTaller.getValueAt(tablaCitasTaller.getSelectedRow(), 0));
+                if(cita == null){
+                    JOptionPane.showMessageDialog(vista, "La cita seleccionada no ha sido encontrada.", "Error", JOptionPane.ERROR_MESSAGE); 
+                }
+                if(JOptionPane.showOptionDialog(vista, "¿Esta seguro de realizar esta opción?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] { "Sí", "No"},"No") == JOptionPane.YES_OPTION){
+                    eliminarCitaSql(cita);        
+                }else{
+                    JOptionPane.showMessageDialog(vista, "Operación cancelada.", "Información", JOptionPane.INFORMATION_MESSAGE); 
+                }
+         }catch (ArrayIndexOutOfBoundsException e){
+              JOptionPane.showMessageDialog(vista, "Debe seleccionar una cita de la lista.", "Información", JOptionPane.INFORMATION_MESSAGE);
+         }
+        //Siempre al finalizar actualiza la tabla.
+        crearTablaCitasTaller(tablaCitasTaller, taller);
+    }
+
 }

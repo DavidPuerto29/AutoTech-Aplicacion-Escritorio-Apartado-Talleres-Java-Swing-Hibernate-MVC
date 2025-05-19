@@ -52,7 +52,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuClientes = new javax.swing.JMenu();
         jMenuItemCambiarEstadoCita = new javax.swing.JMenuItem();
-        JMenuItemCancelarCita = new javax.swing.JMenuItem();
+        JMenuItemEliminarCita = new javax.swing.JMenuItem();
         Vehículos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -175,14 +175,14 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         });
         jMenuClientes.add(jMenuItemCambiarEstadoCita);
 
-        JMenuItemCancelarCita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        JMenuItemCancelarCita.setText("Cancelar");
-        JMenuItemCancelarCita.addActionListener(new java.awt.event.ActionListener() {
+        JMenuItemEliminarCita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        JMenuItemEliminarCita.setText("Eliminar");
+        JMenuItemEliminarCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMenuItemCancelarCitaActionPerformed(evt);
+                JMenuItemEliminarCitaActionPerformed(evt);
             }
         });
-        jMenuClientes.add(JMenuItemCancelarCita);
+        jMenuClientes.add(JMenuItemEliminarCita);
 
         jMenuBar1.add(jMenuClientes);
 
@@ -221,9 +221,9 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JMenuItemCancelarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItemCancelarCitaActionPerformed
-      //  controlador.cancelarCitas(tablaCitasVehiculo, vehiculo, this);
-    }//GEN-LAST:event_JMenuItemCancelarCitaActionPerformed
+    private void JMenuItemEliminarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItemEliminarCitaActionPerformed
+        controlador.eliminarCita(tablaCitasTaller, this, taller);
+    }//GEN-LAST:event_JMenuItemEliminarCitaActionPerformed
 
     private void jMenuItemCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarSesionActionPerformed
        controlador.cerrarSesion(this);
@@ -235,6 +235,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
     private void jMenuItemCambiarEstadoCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCambiarEstadoCitaActionPerformed
         controlador.vistaDialogCamiarEstado(this, tablaCitasTaller);
+            controlador.crearTablaCitasTaller(tablaCitasTaller, taller);
     }//GEN-LAST:event_jMenuItemCambiarEstadoCitaActionPerformed
 
     /**
@@ -274,7 +275,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CabeceraVehiculos;
-    private javax.swing.JMenuItem JMenuItemCancelarCita;
+    private javax.swing.JMenuItem JMenuItemEliminarCita;
     private javax.swing.JMenu Vehículos;
     private javax.swing.JButton botonRefrescar;
     private javax.swing.JLabel fondoPantalla;
