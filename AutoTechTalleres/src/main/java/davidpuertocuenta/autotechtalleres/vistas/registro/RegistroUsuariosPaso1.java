@@ -9,6 +9,8 @@ import static davidpuertocuenta.autotechtalleres.cartografia.CifradoSHA256.gener
 import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
 import davidpuertocuenta.autotechtalleres.controladores.RegistroControlador;
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorUsuarioSql;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 
@@ -27,6 +29,19 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         initComponents();
         reiniciarEtiquetas();
         setExtendedState(RegistroUsuariosPaso1.MAXIMIZED_BOTH);
+        
+        //Listener para poder pasar al siguiente paso pulsando enter desde los textFields.
+         ActionListener finalizarRegistroListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                finalizarRegistro();
+            }
+         };
+
+        fieldUsuario.addActionListener(finalizarRegistroListener);
+        fieldCorreo.addActionListener(finalizarRegistroListener);
+        fieldContrasena.addActionListener(finalizarRegistroListener);
+        fieldContrasenaVerificar.addActionListener(finalizarRegistroListener);
     }
 
      private void reiniciarEtiquetas(){
@@ -107,6 +122,13 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
             return false;
         }
     }
+    
+    private void finalizarRegistro(){
+        if(registrarCliente() && aceptacionTerminos == true){
+            controlador.vistaRegistroPasoDos(this, usuario);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -388,9 +410,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonContinuarActionPerformed
-        if(registrarCliente() && aceptacionTerminos == true){
-            controlador.vistaRegistroPasoDos(this, usuario);
-        }
+        finalizarRegistro();
     }//GEN-LAST:event_botonContinuarActionPerformed
 
     private void checkTerminosYCondicionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTerminosYCondicionesActionPerformed

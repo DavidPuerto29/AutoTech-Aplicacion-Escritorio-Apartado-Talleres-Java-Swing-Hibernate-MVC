@@ -8,6 +8,8 @@ import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
 import davidpuertocuenta.autotechtalleres.controladores.RegistroControlador;
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorDniSql;
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosTalleresDAO.crearUsuarioTallerSql;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -31,6 +33,21 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
         reiniciarEtiquetas();
         setExtendedState(RegistroUsuariosPaso2.MAXIMIZED_BOTH);
         this.usuario = usuario;
+        
+        //Listener para poder pasar al siguiente paso pulsando enter desde los textFields.
+         ActionListener finalizarRegistroListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                finalizarRegistro();
+            }
+         };
+
+        fieldNombre.addActionListener(finalizarRegistroListener);
+        fieldApellidos.addActionListener(finalizarRegistroListener);
+        fieldDni.addActionListener(finalizarRegistroListener);
+        fieldTelefono.addActionListener(finalizarRegistroListener);
+        fieldDireccion.addActionListener(finalizarRegistroListener);
+        
     }
 
      private void reiniciarEtiquetas(){
@@ -124,6 +141,13 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
             return false;
         }
     }
+    
+    private void finalizarRegistro(){
+        if(registrarCliente()){
+            controlador.vistaLoginClientesFinalizarRegistro(this);
+        }
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -414,9 +438,7 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldNombreActionPerformed
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
-         if(registrarCliente()){
-            controlador.vistaLoginClientesFinalizarRegistro(this);
-        }
+         finalizarRegistro();
     }//GEN-LAST:event_botonFinalizarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
