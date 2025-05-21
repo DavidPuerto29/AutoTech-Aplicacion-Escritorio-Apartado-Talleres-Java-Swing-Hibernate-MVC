@@ -161,7 +161,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         fondoPantalla = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Registro Cliente Paso 1");
+        setTitle("Registro Empleado Paso 1");
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(700, 500));
         setPreferredSize(new java.awt.Dimension(1920, 1080));
