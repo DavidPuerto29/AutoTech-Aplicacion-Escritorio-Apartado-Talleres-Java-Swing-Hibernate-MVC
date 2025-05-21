@@ -53,8 +53,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         jMenuClientes = new javax.swing.JMenu();
         jMenuItemCambiarEstadoCita = new javax.swing.JMenuItem();
         JMenuItemEliminarCita = new javax.swing.JMenuItem();
-        Vehículos = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItemCerrarSesion = new javax.swing.JMenuItem();
 
@@ -186,18 +184,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuClientes);
 
-        Vehículos.setForeground(new java.awt.Color(255, 255, 255));
-        Vehículos.setText("Vehículos");
-        Vehículos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Vehículos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Vehículos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Vehículos.setPreferredSize(new java.awt.Dimension(100, 40));
-
-        jMenuItem1.setText("Ver información del vehículo");
-        Vehículos.add(jMenuItem1);
-
-        jMenuBar1.add(Vehículos);
-
         jMenu5.setForeground(new java.awt.Color(255, 255, 255));
         jMenu5.setText("Cerrar Sesión");
         jMenu5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -276,13 +262,11 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CabeceraVehiculos;
     private javax.swing.JMenuItem JMenuItemEliminarCita;
-    private javax.swing.JMenu Vehículos;
     private javax.swing.JButton botonRefrescar;
     private javax.swing.JLabel fondoPantalla;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuClientes;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCambiarEstadoCita;
     private javax.swing.JMenuItem jMenuItemCerrarSesion;
     private javax.swing.JScrollPane jScrollPane1;
