@@ -19,7 +19,7 @@ public class AutoTechTalleres {
             LoginTalleres lt = new LoginTalleres();
                 lt.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "No se ha podido establecer conexión con el servidor.", "Error de conexión", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No ha sido posible establecer conexión con el servidor.", "Error de conexión", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

@@ -12,6 +12,7 @@ import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioP
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -19,6 +20,7 @@ import java.util.Arrays;
  * @author David Puerto Cuenca
  */
 public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
+    private ImageIcon iconoError = new ImageIcon(getClass().getResource("/icons/error_prov.png"));
     private UsuariosTalleres usuario;
     private boolean aceptacionTerminos = false;
     private RegistroControlador controlador = new RegistroControlador();
@@ -45,11 +47,16 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     }
 
      private void reiniciarEtiquetas(){
-        textoErrorUsuario.setVisible(false);
-        textoErrorContrasena.setVisible(false);
-        textoErrorContrasena1.setVisible(false);
-        textoErrorCorreoElectronico.setVisible(false);
-        textoErrorTerminos.setVisible(false);
+        textoErrorUsuario.setText(" ");
+        textoErrorUsuario.setIcon(null);
+        textoErrorContrasena.setText(" ");
+        textoErrorContrasena.setIcon(null);
+        textoErrorContrasena1.setText(" ");
+        textoErrorContrasena1.setIcon(null); 
+        textoErrorCorreoElectronico.setText(" ");
+        textoErrorCorreoElectronico.setIcon(null); 
+        textoErrorTerminos.setText(" ");
+        textoErrorTerminos.setIcon(null); 
         this.revalidate(); 
         this.repaint(); 
     }
@@ -62,23 +69,23 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         if(obtenerUsuarioPorUsuarioSql(fieldUsuario.getText()) != null){
             formatoCorrecto = false;
                 textoErrorUsuario.setText("Usuario ya en uso.");
-                    textoErrorUsuario.setVisible(true);            
+                    textoErrorUsuario.setIcon(iconoError); 
         }
         
         //Comprobación de que el campo usuario no esta vacio.
         if(fieldUsuario.getText().isEmpty()){
             formatoCorrecto = false;
                 textoErrorUsuario.setText("Debe introducir un usuario.");
-                    textoErrorUsuario.setVisible(true);
+                    textoErrorUsuario.setIcon(iconoError); 
         }
         
         //Comprobación de que las dos contraseñas coincidan
         if(!Arrays.equals(fieldContrasena.getPassword(), fieldContrasenaVerificar.getPassword())){
            formatoCorrecto = false;
                textoErrorContrasena.setText("Las contraseñas no coinciden.");
-                    textoErrorContrasena.setVisible(true);
+                    textoErrorContrasena.setIcon(iconoError); 
                         textoErrorContrasena1.setText("Las contraseñas no coinciden.");
-                            textoErrorContrasena1.setVisible(true);
+                            textoErrorContrasena1.setIcon(iconoError); 
                     
         }
         
@@ -86,28 +93,29 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         if(String.valueOf(fieldContrasena.getPassword()).isEmpty() && String.valueOf(fieldContrasenaVerificar.getPassword()).isEmpty()){
            formatoCorrecto = false;
                textoErrorContrasena.setText("Debe introducir una contraseña.");
-                    textoErrorContrasena.setVisible(true); 
+                    textoErrorContrasena.setIcon(iconoError);  
                         textoErrorContrasena1.setText("Debe introducir una contraseña.");
-                            textoErrorContrasena1.setVisible(true); 
+                            textoErrorContrasena1.setIcon(iconoError); 
         }
         
         //Comprobación de que el correo electronico tenga el formato requerido.
         if (!fieldCorreo.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
             formatoCorrecto = false;
-                textoErrorCorreoElectronico.setVisible(true);
+                textoErrorCorreoElectronico.setIcon(iconoError);  
                     textoErrorCorreoElectronico.setText("Introduzca un correo electrónico valido.");
         }
         
         //Comprobación de que el correo electronico no este vacio.
         if(fieldCorreo.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorCorreoElectronico.setVisible(true);
+                textoErrorCorreoElectronico.setIcon(iconoError);  
                     textoErrorCorreoElectronico.setText("Debe introducir un correo electrónico.");
         }
         
         //Comprobación de que el usuario haya aceptado los terminos.
         if(aceptacionTerminos == false){
-            textoErrorTerminos.setVisible(true);
+            textoErrorCorreoElectronico.setText("Debe aceptar los términos.");
+                textoErrorCorreoElectronico.setIcon(iconoError);  
         }
         
         if(formatoCorrecto){

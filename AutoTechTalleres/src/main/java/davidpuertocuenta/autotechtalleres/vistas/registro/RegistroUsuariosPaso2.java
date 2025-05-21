@@ -10,6 +10,7 @@ import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioP
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosTalleresDAO.crearUsuarioTallerSql;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -17,6 +18,7 @@ import java.awt.event.ActionListener;
  * @author David Puerto Cuenca
  */
 public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
+    private ImageIcon iconoError = new ImageIcon(getClass().getResource("/icons/error_prov.png"));
     private UsuariosTalleres usuario;
     private RegistroControlador controlador = new RegistroControlador();
     /**
@@ -51,11 +53,16 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
     }
 
      private void reiniciarEtiquetas(){
-        textoErrorDni.setVisible(false);
-        textoErrorNombre.setVisible(false);
-        textoErrorApellidos.setVisible(false);
-        textoErrorTelefono.setVisible(false);
-        textoErrorDireccion.setVisible(false);
+        textoErrorDni.setText(" ");
+        textoErrorDni.setIcon(null);
+        textoErrorNombre.setText(" ");
+        textoErrorNombre.setIcon(null);
+        textoErrorApellidos.setText(" ");
+        textoErrorApellidos.setIcon(null); 
+        textoErrorTelefono.setText(" ");
+        textoErrorTelefono.setIcon(null); 
+        textoErrorDireccion.setText(" ");
+        textoErrorDireccion.setIcon(null);
         this.revalidate(); 
         this.repaint(); 
     }
@@ -68,34 +75,34 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
         if(obtenerUsuarioPorDniSql(fieldDni.getText()) != null){
             formatoCorrecto = false;
                 textoErrorDni.setText("Dni ya en uso.");
-                    textoErrorDni.setVisible(true);            
+                    textoErrorDni.setIcon(iconoError);  
         }
         
         //Comprobación de que el dni tenga el formato correcto.
         if (!fieldDni.getText().matches("^[0-9]{8}[A-Za-z]$")) {
             formatoCorrecto = false;
-                textoErrorDni.setVisible(true);
+                textoErrorDni.setIcon(iconoError);  
                     textoErrorDni.setText("Debe introducir un dni valido.");
         }
         
         //Comprobación de que el dni no este vacio.
         if(fieldDni.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorDni.setVisible(true);
+                textoErrorDni.setIcon(iconoError);  
                     textoErrorDni.setText("Debe introducir un dni.");
         }
         
         //Comprobación de que el nombre no este vacio.
         if(fieldNombre.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorNombre.setVisible(true);
+                textoErrorNombre.setIcon(iconoError);  
                     textoErrorNombre.setText("Debe introducir un nombre.");
         }
         
         //Comprobación de que los apellidos no esten vacios.
         if(fieldApellidos.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorApellidos.setVisible(true);
+                textoErrorApellidos.setIcon(iconoError);  
                     textoErrorApellidos.setText("Debe introducir los apellidos.");
         }
         
@@ -104,28 +111,28 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
             Integer.parseInt(fieldTelefono.getText()); 
         }catch (NumberFormatException e) {
             formatoCorrecto = false;
-                textoErrorTelefono.setVisible(true);
+                textoErrorTelefono.setIcon(iconoError);  
                     textoErrorTelefono.setText("El teléfono no puede contener letras.");
         } 
           
         //Comprobación de que el teléfono tenga el formato correcto. (123546789)
         if(fieldTelefono.getText().length() != 9 && !fieldTelefono.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorTelefono.setVisible(true);
+                textoErrorTelefono.setIcon(iconoError);  
                     textoErrorTelefono.setText("El formato no es el correcto.");         
         }
         
         //Comprobación de que el teléfono no este vacio.
         if(fieldTelefono.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorTelefono.setVisible(true);
+                textoErrorTelefono.setIcon(iconoError);  
                     textoErrorTelefono.setText("Debe introducir un teléfono.");
         }
         
         //Comprobación de que la dirección no este vacio.
         if(fieldDireccion.getText().isEmpty()){
             formatoCorrecto = false;
-                textoErrorDireccion.setVisible(true);
+                textoErrorDireccion.setIcon(iconoError);  
                     textoErrorDireccion.setText("Debe introducir una dirección.");
         }
         
