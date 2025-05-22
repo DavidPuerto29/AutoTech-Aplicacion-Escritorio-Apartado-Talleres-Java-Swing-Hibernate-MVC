@@ -4,9 +4,11 @@
 
 package davidpuertocuenta.autotechtalleres;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import davidpuertocuenta.autotechtalleres.dao.HibernateUtil;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -15,6 +17,13 @@ import javax.swing.JOptionPane;
 public class AutoTechTalleres {
 
     public static void main(String[] args) {
+        try {
+            // Establece FlatLaf con tema claro
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("No se pudo iniciar FlatLaf");
+        }
+        
         if(HibernateUtil.getSessionFactory() != null){ 
             LoginTalleres lt = new LoginTalleres();
                 lt.setVisible(true);
