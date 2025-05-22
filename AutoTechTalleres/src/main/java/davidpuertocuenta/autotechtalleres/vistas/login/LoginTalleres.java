@@ -76,14 +76,17 @@ public class LoginTalleres extends javax.swing.JFrame {
         formularioLogin.add(logo);
         logo.setBounds(120, 30, 100, 99);
 
-        botonMostrarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png"))); // NOI18N
+        botonMostrarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconMostrarContrasena.png"))); // NOI18N
+        botonMostrarContrasena.setBorder(null);
+        botonMostrarContrasena.setContentAreaFilled(false);
+        botonMostrarContrasena.setFocusPainted(false);
         botonMostrarContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonMostrarContrasenaActionPerformed(evt);
             }
         });
         formularioLogin.add(botonMostrarContrasena);
-        botonMostrarContrasena.setBounds(300, 300, 58, 42);
+        botonMostrarContrasena.setBounds(270, 300, 40, 40);
         formularioLogin.add(textUsuario);
         textUsuario.setBounds(90, 230, 218, 42);
 
@@ -117,7 +120,7 @@ public class LoginTalleres extends javax.swing.JFrame {
         labelRegistro.setForeground(new java.awt.Color(255, 255, 255));
         labelRegistro.setText("¿No tienes cuenta?");
         formularioLogin.add(labelRegistro);
-        labelRegistro.setBounds(90, 410, 130, 30);
+        labelRegistro.setBounds(80, 410, 140, 30);
 
         labelIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));

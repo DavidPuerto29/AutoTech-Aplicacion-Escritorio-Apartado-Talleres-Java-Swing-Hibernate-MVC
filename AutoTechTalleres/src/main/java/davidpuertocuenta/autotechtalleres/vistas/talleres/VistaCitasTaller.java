@@ -234,6 +234,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
     private void botonCambiarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarEstadoActionPerformed
         controlador.vistaDialogCamiarEstado(this, tablaCitasTaller);
+            controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
     }//GEN-LAST:event_botonCambiarEstadoActionPerformed
 
     private void botonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRefrescarActionPerformed

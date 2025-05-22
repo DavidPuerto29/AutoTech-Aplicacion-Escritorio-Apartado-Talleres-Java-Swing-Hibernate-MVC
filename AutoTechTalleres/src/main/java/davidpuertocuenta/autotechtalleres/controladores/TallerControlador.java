@@ -6,12 +6,9 @@ package davidpuertocuenta.autotechtalleres.controladores;
 
 import davidpuertocuenta.autotechtalleres.clases.Citas;
 import davidpuertocuenta.autotechtalleres.clases.Talleres;
-import davidpuertocuenta.autotechtalleres.clases.Usuarios;
-import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.actualizarCitaSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.eliminarCitaSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerCitaPorNumeroSql;
-import static davidpuertocuenta.autotechtalleres.dao.VehiculosDAO.obtenerTodosVehiculosClienteSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerTodasCitasTallerSql;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
 import davidpuertocuenta.autotechtalleres.vistas.talleres.dialogCambiarEstadoCita;
@@ -148,7 +145,6 @@ public class TallerControlador {
             comboBoxEstadoCita.addItem("En proceso"); 
             comboBoxEstadoCita.addItem("Listo para recoger"); 
             comboBoxEstadoCita.addItem("Finalizada"); 
-            comboBoxEstadoCita.addItem("Error"); 
                             //Se añade uno para evitar que el JComboBox se descuadre debido al array.
                            comboBoxEstadoCita.setSelectedIndex(cita.getEstadoCita() - 1);
     }
