@@ -22,7 +22,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
      */
     public VistaCitasTaller() {
         initComponents();
-        setExtendedState(VistaCitasTaller.MAXIMIZED_BOTH);
         controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
         desplegableCitas.setVisible(false);
         
@@ -46,7 +45,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     
     public VistaCitasTaller(Talleres taller) {
         initComponents();
-        setExtendedState(VistaCitasTaller.MAXIMIZED_BOTH);
         this.taller = taller;
         controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
         desplegableCitas.setVisible(false);
@@ -79,30 +77,25 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        organizadorMenuBar = new javax.swing.JPanel();
         desplegableCitas = new javax.swing.JPanel();
         botonCambiarEstado = new javax.swing.JButton();
         botonEliminarCita = new javax.swing.JButton();
-        MenuBarPersonalizada = new javax.swing.JPanel();
-        botonCitas = new javax.swing.JButton();
-        botonCerrarSesion = new javax.swing.JButton();
         organizadorVistaPrincipal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCitasTaller = new javax.swing.JTable();
         botonRefrescar = new javax.swing.JButton();
         labelCitasDelVehiculo = new javax.swing.JLabel();
         CabeceraVehiculos = new javax.swing.JLabel();
+        MenuBarPersonalizada = new javax.swing.JPanel();
+        botonCitas = new javax.swing.JButton();
+        botonCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vista General");
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setMinimumSize(new java.awt.Dimension(700, 500));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
-
-        organizadorMenuBar.setBackground(new java.awt.Color(255, 255, 255));
-        organizadorMenuBar.setForeground(new java.awt.Color(255, 255, 255));
-        organizadorMenuBar.setPreferredSize(new java.awt.Dimension(1920, 110));
-        organizadorMenuBar.setLayout(null);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         desplegableCitas.setBackground(new java.awt.Color(0, 0, 0));
         desplegableCitas.setLayout(null);
@@ -139,8 +132,55 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         desplegableCitas.add(botonEliminarCita);
         botonEliminarCita.setBounds(0, 30, 100, 30);
 
-        organizadorMenuBar.add(desplegableCitas);
-        desplegableCitas.setBounds(0, 50, 100, 60);
+        getContentPane().add(desplegableCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 100, 60));
+
+        organizadorVistaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        organizadorVistaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        organizadorVistaPrincipal.setLayout(null);
+
+        tablaCitasTaller.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Numero De Cita", "Fecha", "Matricula", "Estado De Cita"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaCitasTaller);
+
+        organizadorVistaPrincipal.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 140, 1250, 560);
+
+        botonRefrescar.setBackground(new java.awt.Color(255, 255, 255));
+        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar_prov .png"))); // NOI18N
+        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRefrescarActionPerformed(evt);
+            }
+        });
+        organizadorVistaPrincipal.add(botonRefrescar);
+        botonRefrescar.setBounds(1800, 50, 90, 37);
+
+        labelCitasDelVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        labelCitasDelVehiculo.setForeground(new java.awt.Color(255, 255, 255));
+        labelCitasDelVehiculo.setText("Citas Del Taller");
+        organizadorVistaPrincipal.add(labelCitasDelVehiculo);
+        labelCitasDelVehiculo.setBounds(20, 60, 520, 60);
+
+        CabeceraVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cliente/cabecera_vehiculos_prov.jpg"))); // NOI18N
+        organizadorVistaPrincipal.add(CabeceraVehiculos);
+        CabeceraVehiculos.setBounds(10, 60, 1250, 66);
 
         MenuBarPersonalizada.setBackground(new java.awt.Color(0, 0, 0));
         MenuBarPersonalizada.setMaximumSize(new java.awt.Dimension(1920, 20));
@@ -174,62 +214,12 @@ public class VistaCitasTaller extends javax.swing.JFrame {
             }
         });
         MenuBarPersonalizada.add(botonCerrarSesion);
-        botonCerrarSesion.setBounds(1820, 0, 100, 50);
+        botonCerrarSesion.setBounds(1170, 0, 100, 50);
 
-        organizadorMenuBar.add(MenuBarPersonalizada);
-        MenuBarPersonalizada.setBounds(0, 0, 1920, 50);
+        organizadorVistaPrincipal.add(MenuBarPersonalizada);
+        MenuBarPersonalizada.setBounds(0, 0, 1280, 50);
 
-        getContentPane().add(organizadorMenuBar, java.awt.BorderLayout.NORTH);
-
-        organizadorVistaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        organizadorVistaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
-        organizadorVistaPrincipal.setLayout(null);
-
-        tablaCitasTaller.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Numero De Cita", "Fecha", "Matricula", "Estado De Cita"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tablaCitasTaller);
-
-        organizadorVistaPrincipal.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 110, 1880, 830);
-
-        botonRefrescar.setBackground(new java.awt.Color(255, 255, 255));
-        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar_prov .png"))); // NOI18N
-        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRefrescarActionPerformed(evt);
-            }
-        });
-        organizadorVistaPrincipal.add(botonRefrescar);
-        botonRefrescar.setBounds(1800, 50, 90, 37);
-
-        labelCitasDelVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        labelCitasDelVehiculo.setForeground(new java.awt.Color(255, 255, 255));
-        labelCitasDelVehiculo.setText("Citas Del Taller");
-        organizadorVistaPrincipal.add(labelCitasDelVehiculo);
-        labelCitasDelVehiculo.setBounds(30, 20, 510, 80);
-
-        CabeceraVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cliente/cabecera_vehiculos_prov.jpg"))); // NOI18N
-        organizadorVistaPrincipal.add(CabeceraVehiculos);
-        CabeceraVehiculos.setBounds(20, 30, 1900, 66);
-
-        getContentPane().add(organizadorVistaPrincipal, java.awt.BorderLayout.CENTER);
+        getContentPane().add(organizadorVistaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -296,7 +286,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     private javax.swing.JPanel desplegableCitas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCitasDelVehiculo;
-    private javax.swing.JPanel organizadorMenuBar;
     private javax.swing.JPanel organizadorVistaPrincipal;
     private javax.swing.JTable tablaCitasTaller;
     // End of variables declaration//GEN-END:variables
