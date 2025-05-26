@@ -114,7 +114,7 @@ public class LoginTalleres extends javax.swing.JFrame {
         labelContrasena.setForeground(new java.awt.Color(255, 255, 255));
         labelContrasena.setText("Contraseña");
         formularioLogin.add(labelContrasena);
-        labelContrasena.setBounds(90, 280, 59, 16);
+        labelContrasena.setBounds(90, 280, 80, 16);
 
         labelRegistro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelRegistro.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,7 +132,7 @@ public class LoginTalleres extends javax.swing.JFrame {
         labelUsuario1.setForeground(new java.awt.Color(255, 255, 255));
         labelUsuario1.setText("Usuario");
         formularioLogin.add(labelUsuario1);
-        labelUsuario1.setBounds(90, 210, 40, 16);
+        labelUsuario1.setBounds(90, 210, 60, 16);
 
         fondoCabecera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cabecera_prov.png"))); // NOI18N
         formularioLogin.add(fondoCabecera);
