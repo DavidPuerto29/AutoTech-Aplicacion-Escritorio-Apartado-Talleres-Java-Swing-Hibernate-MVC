@@ -91,7 +91,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         botonCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Vista General");
+        setTitle("Autotech Talleres");
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
@@ -219,7 +219,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         organizadorVistaPrincipal.add(MenuBarPersonalizada);
         MenuBarPersonalizada.setBounds(0, 0, 1280, 50);
 
-        getContentPane().add(organizadorVistaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        getContentPane().add(organizadorVistaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

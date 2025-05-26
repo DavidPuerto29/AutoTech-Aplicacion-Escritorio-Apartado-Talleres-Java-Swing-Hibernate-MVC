@@ -114,7 +114,7 @@ public class LoginTalleres extends javax.swing.JFrame {
         labelContrasena.setForeground(new java.awt.Color(255, 255, 255));
         labelContrasena.setText("Contraseña");
         formularioLogin.add(labelContrasena);
-        labelContrasena.setBounds(90, 280, 60, 16);
+        labelContrasena.setBounds(90, 280, 59, 16);
 
         labelRegistro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelRegistro.setForeground(new java.awt.Color(255, 255, 255));
