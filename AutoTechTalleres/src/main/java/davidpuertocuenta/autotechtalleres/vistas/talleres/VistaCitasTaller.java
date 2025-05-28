@@ -6,7 +6,6 @@ package davidpuertocuenta.autotechtalleres.vistas.talleres;
 
 import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.controladores.TallerControlador;
-import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerCitaPorNumeroSql;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -22,6 +21,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
      */
     public VistaCitasTaller() {
         initComponents();
+        this.setLocationRelativeTo(null);
         controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
         desplegableCitas.setVisible(false);
         

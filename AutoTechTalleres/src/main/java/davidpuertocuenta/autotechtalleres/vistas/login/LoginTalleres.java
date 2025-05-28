@@ -21,7 +21,7 @@ public class LoginTalleres extends javax.swing.JFrame {
      */
     public LoginTalleres() {
         initComponents();
-
+        this.setLocationRelativeTo(null);
         //Método para acceder al programa pulsando enter.
         textContrasena.addActionListener(new ActionListener() {
             @Override

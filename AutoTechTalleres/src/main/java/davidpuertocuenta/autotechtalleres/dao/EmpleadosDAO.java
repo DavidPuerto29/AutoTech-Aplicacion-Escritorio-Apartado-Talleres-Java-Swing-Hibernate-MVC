@@ -34,7 +34,7 @@ public class EmpleadosDAO {
     
     public static Empleados obtenerEmpleadoPorUsuarioSql(String empleado){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Empleados> q = session.createNamedQuery("get_usuarioTalleres_username", Empleados.class);
+            Query<Empleados> q = session.createNamedQuery("get_empleados_username", Empleados.class);
                 q.setParameter("username", empleado);
                     return (Empleados) q.getSingleResult();
         } catch (NoResultException e) {
@@ -44,7 +44,7 @@ public class EmpleadosDAO {
     
     public static Empleados obtenerEmpleadorPorDniSql(String dni){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Empleados> q = session.createNamedQuery("get_usuarioTalleres_dni", Empleados.class);
+            Query<Empleados> q = session.createNamedQuery("get_empleados_dni", Empleados.class);
                 q.setParameter("dniCliente", dni);
                     return (Empleados) q.getSingleResult();
         } catch (NoResultException e) {
@@ -54,7 +54,7 @@ public class EmpleadosDAO {
     
     public static Empleados loginEmpleadoSql(String empleado,String contrasena){    //Creo que obsoleto - PUEDE Q SOBRE COMPROBAR A FINAL DE PROYECTO
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Empleados> q = session.createNamedQuery("get_usuarioTalleres_login", Empleados.class);
+            Query<Empleados> q = session.createNamedQuery("get_empleados_login", Empleados.class);
                 q.setParameter("username", empleado);
                     q.setParameter("password", contrasena);
                         return (Empleados) q.getSingleResult();
@@ -65,7 +65,7 @@ public class EmpleadosDAO {
     
      public static List<Empleados> obtenerTodosEmpleadoSql(){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Empleados> q = session.createNamedQuery("get_todos_usuariosTalleres", Empleados.class);
+            Query<Empleados> q = session.createNamedQuery("get_todos_empleados", Empleados.class);
                 return q.getResultList();
         } catch (NoResultException e) {
             return null;
@@ -83,7 +83,7 @@ public class EmpleadosDAO {
      
      public static Empleados obtenerEmpleadoSql(String empleado){  
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Empleados> q = session.createNamedQuery("get_usuarioTalleres", Empleados.class);
+            Query<Empleados> q = session.createNamedQuery("get_empleados", Empleados.class);
                 q.setParameter("username", empleado);
                     return (Empleados) q.getSingleResult();
         } catch (NoResultException e) {

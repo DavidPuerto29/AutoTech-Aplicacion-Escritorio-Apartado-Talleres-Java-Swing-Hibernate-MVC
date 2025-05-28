@@ -26,11 +26,13 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
      */
     public RegistroUsuariosPaso2() {
         initComponents();
+        this.setLocationRelativeTo(null);
         reiniciarEtiquetas();
     }
     
     public RegistroUsuariosPaso2(Empleados usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         reiniciarEtiquetas();
         this.empleado = usuario;
         
@@ -114,9 +116,9 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
         } 
           
         //Comprobación de que el teléfono tenga el formato correcto. (123546789)
-        if(fieldTelefono.getText().length() != 9 && !fieldTelefono.getText().isEmpty()){
+        if (!fieldTelefono.getText().trim().matches("\\d{9}") && !fieldTelefono.getText().trim().isEmpty()) {
             formatoCorrecto = false;
-                textoErrorTelefono.setIcon(iconoError);  
+                textoErrorTelefono.setVisible(true);
                     textoErrorTelefono.setText("El formato no es el correcto.");         
         }
         

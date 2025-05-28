@@ -21,11 +21,11 @@ import lombok.NoArgsConstructor;
  * @author David Puerto Cuenca
  */
 
-@NamedQuery(name = "get_usuarioTalleres_username", query = "FROM Empleados p WHERE p.usuario = :username")
-@NamedQuery(name = "get_usuarioTalleres_dni", query = "FROM Empleados p WHERE p.dni = :dniCliente")
-@NamedQuery(name = "get_usuarioTalleres_login", query = "FROM Empleados p WHERE p.usuario = :username AND p.contrasena = :password")
-@NamedQuery(name = "get_usuarioTalleres", query = "FROM Empleados p WHERE p.usuario = :username")
-@NamedQuery(name = "get_todos_usuariosTalleres", query = "FROM Empleados q ORDER BY q.usuario ASC")
+@NamedQuery(name = "get_empleados_username", query = "FROM Empleados p WHERE p.usuario = :username")
+@NamedQuery(name = "get_empleados_dni", query = "FROM Empleados p WHERE p.dni = :dniCliente")
+@NamedQuery(name = "get_empleados_login", query = "FROM Empleados p WHERE p.usuario = :username AND p.contrasena = :password")
+@NamedQuery(name = "get_empleados", query = "FROM Empleados p WHERE p.usuario = :username")
+@NamedQuery(name = "get_todos_empleados", query = "FROM Empleados q ORDER BY q.usuario ASC")
 @NoArgsConstructor
 @Data
 @Entity

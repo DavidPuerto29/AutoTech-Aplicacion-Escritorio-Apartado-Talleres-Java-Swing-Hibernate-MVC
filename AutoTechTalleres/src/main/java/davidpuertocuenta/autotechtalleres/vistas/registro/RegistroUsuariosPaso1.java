@@ -8,6 +8,7 @@ import static davidpuertocuenta.autotechtalleres.cartografia.CifradoSHA256.cifra
 import static davidpuertocuenta.autotechtalleres.cartografia.CifradoSHA256.generarRandomizador;
 import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.controladores.RegistroControlador;
+import static davidpuertocuenta.autotechtalleres.dao.EmpleadosDAO.obtenerEmpleadoPorUsuarioSql;
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorUsuarioSql;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
      */
     public RegistroUsuariosPaso1() {
         initComponents();
+        this.setLocationRelativeTo(null);
         reiniciarEtiquetas();
         
         //Listener para poder pasar al siguiente paso pulsando enter desde los textFields.
@@ -65,7 +67,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         boolean formatoCorrecto = true;
         
         //Comprobación de que el empleado no esta ya en uso.
-        if(obtenerUsuarioPorUsuarioSql(fieldUsuario.getText()) != null){
+        if(obtenerEmpleadoPorUsuarioSql(fieldUsuario.getText()) != null){
             formatoCorrecto = false;
                 textoErrorUsuario.setText("Usuario ya en uso.");
                     textoErrorUsuario.setIcon(iconoError); 

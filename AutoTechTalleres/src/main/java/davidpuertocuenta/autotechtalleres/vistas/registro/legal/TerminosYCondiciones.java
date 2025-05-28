@@ -19,6 +19,7 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
     public TerminosYCondiciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         //Usado para que el ScrollPanel al inicializar la ventana se abra desde arriba del todo.
         SwingUtilities.invokeLater(() -> {
             jScrollPane1.getVerticalScrollBar().setValue(0);
