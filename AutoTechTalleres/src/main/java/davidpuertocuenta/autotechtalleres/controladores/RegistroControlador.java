@@ -5,7 +5,7 @@
 package davidpuertocuenta.autotechtalleres.controladores;
 
 import davidpuertocuenca.autotech.vistas.registro.legal.TerminosYCondiciones;
-import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
+import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
 import davidpuertocuenta.autotechtalleres.vistas.registro.RegistroUsuariosPaso2;
 import javax.swing.JFrame;
@@ -30,7 +30,7 @@ public class RegistroControlador {
                      vista.dispose(); 
     }
     
-    public void vistaRegistroPasoDos(JFrame vista, UsuariosTalleres usuario){
+    public void vistaRegistroPasoDos(JFrame vista, Empleados usuario){
         RegistroUsuariosPaso2 rgc = new RegistroUsuariosPaso2(usuario);
                 rgc.setVisible(true);
                     vista.dispose(); 

@@ -6,7 +6,7 @@ package davidpuertocuenta.autotechtalleres.vistas.registro;
 
 import static davidpuertocuenta.autotechtalleres.cartografia.CifradoSHA256.cifrarContraseña;
 import static davidpuertocuenta.autotechtalleres.cartografia.CifradoSHA256.generarRandomizador;
-import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
+import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.controladores.RegistroControlador;
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorUsuarioSql;
 import java.awt.event.ActionEvent;
@@ -21,7 +21,7 @@ import javax.swing.ImageIcon;
  */
 public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     private ImageIcon iconoError = new ImageIcon(getClass().getResource("/icons/error_prov.png"));
-    private UsuariosTalleres usuario;
+    private Empleados empleado;
     private boolean aceptacionTerminos = false;
     private RegistroControlador controlador = new RegistroControlador();
     /**
@@ -30,7 +30,6 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     public RegistroUsuariosPaso1() {
         initComponents();
         reiniciarEtiquetas();
-        setExtendedState(RegistroUsuariosPaso1.MAXIMIZED_BOTH);
         
         //Listener para poder pasar al siguiente paso pulsando enter desde los textFields.
          ActionListener finalizarRegistroListener = new ActionListener() {
@@ -65,14 +64,14 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         reiniciarEtiquetas();
         boolean formatoCorrecto = true;
         
-        //Comprobación de que el usuario no esta ya en uso.
+        //Comprobación de que el empleado no esta ya en uso.
         if(obtenerUsuarioPorUsuarioSql(fieldUsuario.getText()) != null){
             formatoCorrecto = false;
                 textoErrorUsuario.setText("Usuario ya en uso.");
                     textoErrorUsuario.setIcon(iconoError); 
         }
         
-        //Comprobación de que el campo usuario no esta vacio.
+        //Comprobación de que el campo empleado no esta vacio.
         if(fieldUsuario.getText().isEmpty()){
             formatoCorrecto = false;
                 textoErrorUsuario.setText("Debe introducir un usuario.");
@@ -112,17 +111,17 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
                     textoErrorCorreoElectronico.setText("Debe introducir un correo electrónico.");
         }
         
-        //Comprobación de que el usuario haya aceptado los terminos.
+        //Comprobación de que el empleado haya aceptado los terminos.
         if(aceptacionTerminos == false){
-            textoErrorCorreoElectronico.setText("Debe aceptar los términos.");
-                textoErrorCorreoElectronico.setIcon(iconoError);  
+            textoErrorTerminos.setText("Debe aceptar los términos.");
+                textoErrorTerminos.setIcon(iconoError);  
         }
         
         if(formatoCorrecto){
             String randormizador = generarRandomizador();
             char[] contasenaChar = fieldContrasena.getPassword();
                 //Se guardan los datos obtenidos en la variable global.
-                usuario = new UsuariosTalleres(fieldUsuario.getText(),cifrarContraseña(String.valueOf(contasenaChar), randormizador),randormizador,null, null, null, fieldCorreo.getText(), null, null, false,null);
+                empleado = new Empleados(fieldUsuario.getText(),cifrarContraseña(String.valueOf(contasenaChar), randormizador),randormizador,null, null, null, fieldCorreo.getText(), null, null,null);
                     //Se limpia el array para aumentar la seguridad.
                     java.util.Arrays.fill(contasenaChar, '\0');    
                         return true;
@@ -133,7 +132,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     
     private void finalizarRegistro(){
         if(registrarCliente() && aceptacionTerminos == true){
-            controlador.vistaRegistroPasoDos(this, usuario);
+            controlador.vistaRegistroPasoDos(this, empleado);
         }
     }
     
@@ -145,7 +144,6 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         fieldUsuario = new javax.swing.JTextField();
         textoErrorUsuario = new javax.swing.JLabel();
@@ -170,129 +168,51 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro Empleado Paso 1");
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setMinimumSize(new java.awt.Dimension(700, 500));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fieldUsuario.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 27;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 920, 0, 0);
-        getContentPane().add(fieldUsuario, gridBagConstraints);
+        getContentPane().add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 250, 40));
 
         textoErrorUsuario.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorUsuario.setText("Usuario ya en uso.");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 920, 0, 0);
-        getContentPane().add(textoErrorUsuario, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 27;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 920, 0, 0);
-        getContentPane().add(fieldContrasena, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 27;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 920, 0, 0);
-        getContentPane().add(fieldContrasenaVerificar, gridBagConstraints);
+        getContentPane().add(textoErrorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 121, -1));
+        getContentPane().add(fieldContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 250, 40));
+        getContentPane().add(fieldContrasenaVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 250, 40));
 
         textoErrorContrasena.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorContrasena.setText("Las contraseñas no coinciden.");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 920, 0, 0);
-        getContentPane().add(textoErrorContrasena, gridBagConstraints);
+        getContentPane().add(textoErrorContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 184, -1));
 
         fieldCorreo.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 27;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 920, 0, 0);
-        getContentPane().add(fieldCorreo, gridBagConstraints);
+        getContentPane().add(fieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 250, 40));
 
         textoErrorCorreoElectronico.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorCorreoElectronico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorCorreoElectronico.setText("Debe introducir un correo electrónico.");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 20;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 920, 0, 0);
-        getContentPane().add(textoErrorCorreoElectronico, gridBagConstraints);
+        getContentPane().add(textoErrorCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 240, -1));
 
         labelUsuario1.setForeground(new java.awt.Color(255, 255, 255));
         labelUsuario1.setText("Usuario");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 920, 0, 0);
-        getContentPane().add(labelUsuario1, gridBagConstraints);
+        getContentPane().add(labelUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
 
         labelContrasena.setForeground(new java.awt.Color(255, 255, 255));
         labelContrasena.setText("Contraseña");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 920, 0, 0);
-        getContentPane().add(labelContrasena, gridBagConstraints);
+        getContentPane().add(labelContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 61, -1));
 
         labelCorreoElectronico.setForeground(new java.awt.Color(255, 255, 255));
         labelCorreoElectronico.setText("Correo Electronico");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 22;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 920, 0, 0);
-        getContentPane().add(labelCorreoElectronico, gridBagConstraints);
+        getContentPane().add(labelCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 120, -1));
 
         textoErrorContrasena1.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorContrasena1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorContrasena1.setText("Las contraseñas no coinciden.");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 920, 0, 0);
-        getContentPane().add(textoErrorContrasena1, gridBagConstraints);
+        getContentPane().add(textoErrorContrasena1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 184, -1));
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -300,13 +220,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
                 botonCancelarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 0, 0, 0);
-        getContentPane().add(botonCancelar, gridBagConstraints);
+        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 650, -1, -1));
 
         botonContinuar.setText("Continuar");
         botonContinuar.addActionListener(new java.awt.event.ActionListener() {
@@ -314,14 +228,7 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
                 botonContinuarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 21;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 44, 0, 0);
-        getContentPane().add(botonContinuar, gridBagConstraints);
+        getContentPane().add(botonContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 650, 85, -1));
 
         checkTerminosYCondiciones.setBackground(new java.awt.Color(0, 0, 0));
         checkTerminosYCondiciones.setForeground(new java.awt.Color(255, 255, 255));
@@ -331,84 +238,30 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
                 checkTerminosYCondicionesActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 14;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 0, 0, 0);
-        getContentPane().add(checkTerminosYCondiciones, gridBagConstraints);
+        getContentPane().add(checkTerminosYCondiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, 189, -1));
 
         textoErrorTerminos.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorTerminos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorTerminos.setText("Debe aceptar los términos.");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.ipadx = -2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 0, 0);
-        getContentPane().add(textoErrorTerminos, gridBagConstraints);
+        getContentPane().add(textoErrorTerminos, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 610, 180, -1));
 
         labelContrasena2.setForeground(new java.awt.Color(255, 255, 255));
         labelContrasena2.setText("Contraseña");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 920, 0, 0);
-        getContentPane().add(labelContrasena2, gridBagConstraints);
+        getContentPane().add(labelContrasena2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 61, -1));
 
         labelIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         labelIniciarSesion.setText("[●○] Paso 1: Crear cuenta(Con mas estilo)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 30;
-        gridBagConstraints.ipadx = 76;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(130, 840, 0, 0);
-        getContentPane().add(labelIniciarSesion, gridBagConstraints);
+        getContentPane().add(labelIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 520, 40));
 
         fondoCabecera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cabecera_prov.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 28;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -1276;
-        gridBagConstraints.ipady = -82;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(130, 830, 0, 0);
-        getContentPane().add(fondoCabecera, gridBagConstraints);
+        getContentPane().add(fondoCabecera, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 470, 50));
 
         fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_login_prov .jpg"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 29;
-        gridBagConstraints.gridheight = 18;
-        gridBagConstraints.ipadx = -2484;
-        gridBagConstraints.ipady = -3282;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(90, 780, 0, 0);
-        getContentPane().add(fondoLogin, gridBagConstraints);
+        getContentPane().add(fondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 520, 680));
 
         fondoPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_prov.jpg"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 31;
-        gridBagConstraints.gridheight = 19;
-        gridBagConstraints.ipadx = 220;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        getContentPane().add(fondoPantalla, gridBagConstraints);
+        getContentPane().add(fondoPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

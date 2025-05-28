@@ -45,6 +45,7 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Términos y condiciones de uso");
+        setResizable(false);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);

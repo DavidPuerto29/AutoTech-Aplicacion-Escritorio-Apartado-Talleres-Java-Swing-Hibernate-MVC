@@ -4,25 +4,23 @@
  */
 package davidpuertocuenta.autotechtalleres.clases;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
-import jakarta.persistence.OneToMany;
-import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 /**
  *
  * @author David Puerto Cuenca
  */
-@NamedQuery(name = "get_todos_talleres", query = "FROM Talleres q ")
-@NoArgsConstructor
-@Data
-@Entity
+@NamedQuery(name = "get_todos_talleres", query = "FROM Talleres q ORDER BY nombre ASC")
+@NamedQuery(name = "get_taller", query = "FROM Talleres q Where q.numeroTaller = :identificacion ORDER BY nombre ASC")
+@NamedQuery(name = "get_taller_cif", query = "FROM Talleres q Where q.cif = :identificacion ORDER BY nombre ASC")
+@NamedQuery(name = "get_taller_nombre", query = "FROM Talleres q Where q.nombre = :identificacion ORDER BY nombre ASC")
+@Entity @NoArgsConstructor @Data
 public class Talleres {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,17 +32,16 @@ public class Talleres {
     private String telefono;
     private String cif;
     private String localidad;
-    
-    @OneToMany(mappedBy = "taller", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<UsuariosTalleres> usuarios;
-    
-    public Talleres(String nombre, String direccion, String codigoPostal, String telefono, String cif, String localidad) {
+    private Integer citasMaximas;
+
+    public Talleres(String nombre, String direccion, String codigoPostal, String telefono, String cif, String localidad, Integer citasMaximas) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.codigoPostal = codigoPostal;
         this.telefono = telefono;
         this.cif = cif;
         this.localidad = localidad;
+        this.citasMaximas = citasMaximas;
     }
     
 }

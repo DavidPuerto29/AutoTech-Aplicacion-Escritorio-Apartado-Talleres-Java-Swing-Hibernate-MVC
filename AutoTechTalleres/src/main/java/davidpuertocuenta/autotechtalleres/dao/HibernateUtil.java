@@ -3,7 +3,7 @@ package davidpuertocuenta.autotechtalleres.dao;
 import davidpuertocuenta.autotechtalleres.clases.Citas;
 import davidpuertocuenta.autotechtalleres.clases.Talleres;
 import davidpuertocuenta.autotechtalleres.clases.Usuarios;
-import davidpuertocuenta.autotechtalleres.clases.UsuariosTalleres;
+import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.clases.Vehiculos;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -30,7 +30,7 @@ public class HibernateUtil {
                 sessionFactory = new MetadataSources(registry)
                         .addAnnotatedClass(Citas.class)
                         .addAnnotatedClass(Talleres.class)
-                        .addAnnotatedClass(UsuariosTalleres.class)
+                        .addAnnotatedClass(Empleados.class)
                         .addAnnotatedClass(Vehiculos.class)
                         .addAnnotatedClass(Usuarios.class)
                         .buildMetadata().buildSessionFactory();
