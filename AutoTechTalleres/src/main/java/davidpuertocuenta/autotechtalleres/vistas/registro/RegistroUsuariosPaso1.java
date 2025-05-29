@@ -244,6 +244,12 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         textoErrorUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorUsuario.setText("Usuario ya en uso.");
         formularioRegistro.add(textoErrorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 250, -1));
+
+        fieldContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldContrasenaActionPerformed(evt);
+            }
+        });
         formularioRegistro.add(fieldContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 250, 40));
 
         textoErrorCorreoElectronico.setForeground(new java.awt.Color(255, 0, 0));
@@ -281,6 +287,10 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
                 aceptacionTerminos = false;
         }
     }//GEN-LAST:event_checkTerminosYCondicionesActionPerformed
+
+    private void fieldContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldContrasenaActionPerformed
 
     /**
      * @param args the command line arguments
