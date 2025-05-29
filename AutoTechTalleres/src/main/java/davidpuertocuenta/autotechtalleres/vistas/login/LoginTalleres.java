@@ -81,7 +81,7 @@ public class LoginTalleres extends javax.swing.JFrame {
         formularioLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/logo.png"))); // NOI18N
-        formularioLogin.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        formularioLogin.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         botonMostrarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png"))); // NOI18N
         botonMostrarContrasena.setBorder(null);
