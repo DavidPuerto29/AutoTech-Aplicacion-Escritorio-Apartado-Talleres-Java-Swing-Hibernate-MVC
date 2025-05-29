@@ -45,7 +45,7 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
         botonAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Términos y condiciones de uso");
+        setTitle("Autotech - Talleres");
         setResizable(false);
 
         jTextArea1.setEditable(false);

@@ -92,7 +92,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         botonCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Autotech Talleres");
+        setTitle("Autotech - Talleres");
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
