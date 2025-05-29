@@ -8,6 +8,8 @@ import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.controladores.RegistroControlador;
 import static davidpuertocuenta.autotechtalleres.dao.EmpleadosDAO.crearEmpleadoSql;
 import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorDniSql;
+import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloBoton;
+import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -33,6 +35,15 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
     public RegistroUsuariosPaso2(Empleados usuario) {
         initComponents();
         this.setLocationRelativeTo(null);
+        //Estilos FrontEnd
+        aplicarEstiloBoton(botonCancelar);
+        aplicarEstiloBoton(botonFinalizar);
+        aplicarEstiloTextField(fieldNombre);
+        aplicarEstiloTextField(fieldApellidos);
+        aplicarEstiloTextField(fieldDni);
+        aplicarEstiloTextField(fieldTelefono);
+        aplicarEstiloTextField(fieldDireccion);
+        
         reiniciarEtiquetas();
         this.empleado = usuario;
         
@@ -105,6 +116,13 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
                 textoErrorApellidos.setIcon(iconoError);  
                     textoErrorApellidos.setText("Debe introducir los apellidos.");
         }
+          
+        //Comprobación de que el teléfono tenga el formato correcto. (123546789)
+        if (!fieldTelefono.getText().trim().matches("\\d{9}") && !fieldTelefono.getText().trim().isEmpty()) {
+            formatoCorrecto = false;
+                textoErrorTelefono.setVisible(true);
+                    textoErrorTelefono.setText("El formato no es el correcto.");         
+        }
         
         //Comprobación de que el teléfono sean números y no letras.
         try {
@@ -114,13 +132,6 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
                 textoErrorTelefono.setIcon(iconoError);  
                     textoErrorTelefono.setText("El teléfono no puede contener letras.");
         } 
-          
-        //Comprobación de que el teléfono tenga el formato correcto. (123546789)
-        if (!fieldTelefono.getText().trim().matches("\\d{9}") && !fieldTelefono.getText().trim().isEmpty()) {
-            formatoCorrecto = false;
-                textoErrorTelefono.setVisible(true);
-                    textoErrorTelefono.setText("El formato no es el correcto.");         
-        }
         
         //Comprobación de que el teléfono no este vacio.
         if(fieldTelefono.getText().isEmpty()){
@@ -165,6 +176,7 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        formularioRegistroPaso2 = new javax.swing.JPanel();
         fieldTelefono = new javax.swing.JTextField();
         fieldDireccion = new javax.swing.JTextField();
         textoErrorDireccion = new javax.swing.JLabel();
@@ -183,8 +195,6 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
         botonFinalizar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
         labelIniciarSesion = new javax.swing.JLabel();
-        fondoCabecera = new javax.swing.JLabel();
-        fondoLogin = new javax.swing.JLabel();
         fondoPantalla = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,42 +205,44 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        formularioRegistroPaso2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         fieldTelefono.setToolTipText("");
-        getContentPane().add(fieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 250, 40));
+        formularioRegistroPaso2.add(fieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 250, 40));
 
         fieldDireccion.setToolTipText("");
-        getContentPane().add(fieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 250, 40));
+        formularioRegistroPaso2.add(fieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 250, 40));
 
         textoErrorDireccion.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorDireccion.setText("Debe introducir una dirección.");
-        getContentPane().add(textoErrorDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 610, -1, -1));
+        formularioRegistroPaso2.add(textoErrorDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 250, -1));
 
         textoErrorTelefono.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorTelefono.setText("Debe introducir un teléfono.");
-        getContentPane().add(textoErrorTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, -1, -1));
+        formularioRegistroPaso2.add(textoErrorTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 250, -1));
 
         fieldDni.setToolTipText("");
-        getContentPane().add(fieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 250, 40));
+        formularioRegistroPaso2.add(fieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 250, 40));
 
         textoErrorDni.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorDni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorDni.setText("El formato no es correcto.");
-        getContentPane().add(textoErrorDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, -1, -1));
+        formularioRegistroPaso2.add(textoErrorDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 250, -1));
 
         fieldApellidos.setToolTipText("");
-        getContentPane().add(fieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 250, 40));
+        formularioRegistroPaso2.add(fieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 250, 40));
 
         textoErrorApellidos.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorApellidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorApellidos.setText("Debe introducir un apellido.");
-        getContentPane().add(textoErrorApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
+        formularioRegistroPaso2.add(textoErrorApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 250, -1));
 
         textoErrorNombre.setForeground(new java.awt.Color(255, 0, 0));
         textoErrorNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/error_prov.png"))); // NOI18N
         textoErrorNombre.setText("Debe introducir un nombre.");
-        getContentPane().add(textoErrorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
+        formularioRegistroPaso2.add(textoErrorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 250, -1));
 
         fieldNombre.setToolTipText("");
         fieldNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -238,27 +250,27 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
                 fieldNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 250, 40));
+        formularioRegistroPaso2.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 250, 40));
 
         labelNombre.setForeground(new java.awt.Color(255, 255, 255));
         labelNombre.setText("Nombre");
-        getContentPane().add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
+        formularioRegistroPaso2.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 250, -1));
 
         labelApellidos.setForeground(new java.awt.Color(255, 255, 255));
         labelApellidos.setText("Apellidos");
-        getContentPane().add(labelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, -1, -1));
+        formularioRegistroPaso2.add(labelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 250, -1));
 
         labelDni.setForeground(new java.awt.Color(255, 255, 255));
         labelDni.setText("Dni");
-        getContentPane().add(labelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
+        formularioRegistroPaso2.add(labelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 250, -1));
 
         labelTelefono.setForeground(new java.awt.Color(255, 255, 255));
         labelTelefono.setText("Teléfono");
-        getContentPane().add(labelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
+        formularioRegistroPaso2.add(labelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 250, -1));
 
         labelDireccion.setForeground(new java.awt.Color(255, 255, 255));
         labelDireccion.setText("Dirección");
-        getContentPane().add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, -1, -1));
+        formularioRegistroPaso2.add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 250, -1));
 
         botonFinalizar.setText("Finalizar");
         botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -266,7 +278,7 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
                 botonFinalizarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 650, 80, 20));
+        formularioRegistroPaso2.add(botonFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 100, 30));
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -274,21 +286,20 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
                 botonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, -1, -1));
+        formularioRegistroPaso2.add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 100, 30));
 
         labelIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        labelIniciarSesion.setText("[○●] Paso 2: Crear cuenta(Con mas estilo)");
-        getContentPane().add(labelIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 520, 40));
+        labelIniciarSesion.setText("AutoTech - Paso 2 de 2: Crear tu cuenta");
+        formularioRegistroPaso2.add(labelIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 450, 40));
 
-        fondoCabecera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cabecera_prov.png"))); // NOI18N
-        getContentPane().add(fondoCabecera, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 470, 50));
+        getContentPane().add(formularioRegistroPaso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 520, 620));
+        formularioRegistroPaso2.setBackground(new java.awt.Color(0, 0, 0, 120));
 
-        fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_login_prov .jpg"))); // NOI18N
-        getContentPane().add(fondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 540, 670));
-
-        fondoPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_prov.jpg"))); // NOI18N
+        fondoPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_formularios.jpg"))); // NOI18N
+        fondoPantalla.setOpaque(true);
         getContentPane().add(fondoPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 720));
+        formularioRegistroPaso2.setBackground(new java.awt.Color(0, 0, 0, 120));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -355,9 +366,8 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
     private javax.swing.JTextField fieldDni;
     private javax.swing.JTextField fieldNombre;
     private javax.swing.JTextField fieldTelefono;
-    private javax.swing.JLabel fondoCabecera;
-    private javax.swing.JLabel fondoLogin;
     private javax.swing.JLabel fondoPantalla;
+    private javax.swing.JPanel formularioRegistroPaso2;
     private javax.swing.JLabel labelApellidos;
     private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelDni;

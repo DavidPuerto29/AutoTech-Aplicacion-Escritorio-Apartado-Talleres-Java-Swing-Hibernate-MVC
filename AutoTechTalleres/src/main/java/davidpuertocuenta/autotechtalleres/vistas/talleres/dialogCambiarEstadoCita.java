@@ -9,7 +9,7 @@ import davidpuertocuenta.autotechtalleres.controladores.TallerControlador;
 
 /**
  *
- * @author David
+ * @author David Puerto Cuenca
  */
 public class dialogCambiarEstadoCita extends javax.swing.JDialog {
     private TallerControlador controlador = new TallerControlador();
@@ -20,12 +20,15 @@ public class dialogCambiarEstadoCita extends javax.swing.JDialog {
     public dialogCambiarEstadoCita(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public dialogCambiarEstadoCita(java.awt.Frame parent, boolean modal, Citas cita) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         this.cita = cita;
+                
         controlador.cargarEstadoCitaComboBox(jComboBoxEstadoCita, cita);
     }
 
@@ -38,13 +41,23 @@ public class dialogCambiarEstadoCita extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonCancelar = new javax.swing.JButton();
+        modificarEstado = new javax.swing.JPanel();
         jLabelEstadoCita = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
         jComboBoxEstadoCita = new javax.swing.JComboBox<>();
         jButtonModificar = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cambiar Estado De Cita");
+        setTitle("Modificar Estado");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        modificarEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelEstadoCita.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEstadoCita.setText("Estado de la cita.");
+        modificarEstado.add(jLabelEstadoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 17, -1, -1));
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -52,8 +65,9 @@ public class dialogCambiarEstadoCita extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
+        modificarEstado.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, -1));
 
-        jLabelEstadoCita.setText("Estado de la cita.");
+        modificarEstado.add(jComboBoxEstadoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 39, 220, 32));
 
         jButtonModificar.setText("Modificar");
         jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,35 +75,13 @@ public class dialogCambiarEstadoCita extends javax.swing.JDialog {
                 jButtonModificarActionPerformed(evt);
             }
         });
+        modificarEstado.add(jButtonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelEstadoCita)
-                    .addComponent(jComboBoxEstadoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonCancelar)
-                        .addGap(57, 57, 57)
-                        .addComponent(jButtonModificar)))
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabelEstadoCita)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxEstadoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancelar)
-                    .addComponent(jButtonModificar))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        getContentPane().add(modificarEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 120));
+        modificarEstado.setBackground(new java.awt.Color(0, 0, 0, 120));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_login.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 140));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,9 +137,11 @@ public class dialogCambiarEstadoCita extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonModificar;
     private javax.swing.JComboBox<String> jComboBoxEstadoCita;
     private javax.swing.JLabel jLabelEstadoCita;
+    private javax.swing.JPanel modificarEstado;
     // End of variables declaration//GEN-END:variables
 }

@@ -193,7 +193,7 @@
         <Component class="javax.swing.JLabel" name="CabeceraVehiculos">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/stiles/cliente/cabecera_vehiculos_prov.jpg"/>
+              <Image iconType="3" name="/stiles/cabecera_vehiculos_prov.jpg"/>
             </Property>
           </Properties>
           <Constraints>

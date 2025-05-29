@@ -46,6 +46,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
     public VistaCitasTaller(Talleres taller) {
         initComponents();
         this.taller = taller;
+        this.setLocationRelativeTo(null);
         controlador.crearTablaCitasTaller(tablaCitasTaller, this.taller);
         desplegableCitas.setVisible(false);
         
@@ -178,7 +179,7 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         organizadorVistaPrincipal.add(labelCitasDelVehiculo);
         labelCitasDelVehiculo.setBounds(20, 60, 520, 60);
 
-        CabeceraVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cliente/cabecera_vehiculos_prov.jpg"))); // NOI18N
+        CabeceraVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cabecera_vehiculos_prov.jpg"))); // NOI18N
         organizadorVistaPrincipal.add(CabeceraVehiculos);
         CabeceraVehiculos.setBounds(10, 60, 1250, 66);
 

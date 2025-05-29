@@ -5,6 +5,9 @@
 package davidpuertocuenta.autotechtalleres.vistas.login;
 
 import davidpuertocuenta.autotechtalleres.controladores.LoginControlador;
+import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloBoton;
+import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloPasswordField;
+import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -22,6 +25,12 @@ public class LoginTalleres extends javax.swing.JFrame {
     public LoginTalleres() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //Estilos FrontEnd
+        aplicarEstiloBoton(botonIniciarSesion);
+        aplicarEstiloBoton(botonRegistro);
+        aplicarEstiloTextField(textUsuario);
+        aplicarEstiloPasswordField(textContrasena);
+                
         //Método para acceder al programa pulsando enter.
         textContrasena.addActionListener(new ActionListener() {
             @Override
@@ -52,31 +61,29 @@ public class LoginTalleres extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         botonMostrarContrasena = new javax.swing.JToggleButton();
         textUsuario = new javax.swing.JTextField();
-        botonIniciarSesion = new javax.swing.JToggleButton();
         botonRegistro = new javax.swing.JButton();
         textContrasena = new javax.swing.JPasswordField();
         labelContrasena = new javax.swing.JLabel();
         labelRegistro = new javax.swing.JLabel();
         labelIniciarSesion = new javax.swing.JLabel();
         labelUsuario1 = new javax.swing.JLabel();
-        fondoCabecera = new javax.swing.JLabel();
-        fondoLogin = new javax.swing.JLabel();
+        botonIniciarSesion = new javax.swing.JButton();
         fondoPantalla = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Iniciar Sesión");
+        setTitle("Autotech - Talleres");
         setMaximumSize(new java.awt.Dimension(700, 600));
         setMinimumSize(new java.awt.Dimension(700, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        formularioLogin.setLayout(null);
+        formularioLogin.setToolTipText("");
+        formularioLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/logo_prov.jpg"))); // NOI18N
-        formularioLogin.add(logo);
-        logo.setBounds(120, 30, 100, 99);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/logo.png"))); // NOI18N
+        formularioLogin.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        botonMostrarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconMostrarContrasena.png"))); // NOI18N
+        botonMostrarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png"))); // NOI18N
         botonMostrarContrasena.setBorder(null);
         botonMostrarContrasena.setContentAreaFilled(false);
         botonMostrarContrasena.setFocusPainted(false);
@@ -85,19 +92,8 @@ public class LoginTalleres extends javax.swing.JFrame {
                 botonMostrarContrasenaActionPerformed(evt);
             }
         });
-        formularioLogin.add(botonMostrarContrasena);
-        botonMostrarContrasena.setBounds(270, 300, 40, 40);
-        formularioLogin.add(textUsuario);
-        textUsuario.setBounds(90, 230, 218, 42);
-
-        botonIniciarSesion.setText("Login");
-        botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonIniciarSesionActionPerformed(evt);
-            }
-        });
-        formularioLogin.add(botonIniciarSesion);
-        botonIniciarSesion.setBounds(140, 360, 110, 40);
+        formularioLogin.add(botonMostrarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 40, 40));
+        formularioLogin.add(textUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 218, 42));
 
         botonRegistro.setText("Crear cuenta");
         botonRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -105,50 +101,44 @@ public class LoginTalleres extends javax.swing.JFrame {
                 botonRegistroActionPerformed(evt);
             }
         });
-        formularioLogin.add(botonRegistro);
-        botonRegistro.setBounds(230, 410, 100, 30);
-        formularioLogin.add(textContrasena);
-        textContrasena.setBounds(90, 300, 218, 42);
+        formularioLogin.add(botonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 120, 30));
+        formularioLogin.add(textContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 218, 42));
 
         labelContrasena.setBackground(new java.awt.Color(255, 255, 255));
         labelContrasena.setForeground(new java.awt.Color(255, 255, 255));
         labelContrasena.setText("Contraseña");
-        formularioLogin.add(labelContrasena);
-        labelContrasena.setBounds(90, 280, 80, 16);
+        formularioLogin.add(labelContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 80, -1));
 
         labelRegistro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelRegistro.setForeground(new java.awt.Color(255, 255, 255));
         labelRegistro.setText("¿No tienes cuenta?");
-        formularioLogin.add(labelRegistro);
-        labelRegistro.setBounds(80, 410, 140, 30);
+        formularioLogin.add(labelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 140, 30));
 
         labelIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         labelIniciarSesion.setText("Iniciar Sesión");
-        formularioLogin.add(labelIniciarSesion);
-        labelIniciarSesion.setBounds(110, 140, 150, 40);
+        formularioLogin.add(labelIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 150, 40));
 
         labelUsuario1.setBackground(new java.awt.Color(255, 255, 255));
         labelUsuario1.setForeground(new java.awt.Color(255, 255, 255));
         labelUsuario1.setText("Usuario");
-        formularioLogin.add(labelUsuario1);
-        labelUsuario1.setBounds(90, 210, 60, 16);
+        formularioLogin.add(labelUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 60, -1));
 
-        fondoCabecera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/cabecera_prov.png"))); // NOI18N
-        formularioLogin.add(fondoCabecera);
-        fondoCabecera.setBounds(70, 140, 225, 50);
+        botonIniciarSesion.setText("Login");
+        formularioLogin.add(botonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 100, 30));
 
-        fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_login_prov .jpg"))); // NOI18N
-        formularioLogin.add(fondoLogin);
-        fondoLogin.setBounds(0, 0, 410, 490);
+        getContentPane().add(formularioLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 410, 450));
+        formularioLogin.setBackground(new java.awt.Color(0, 0, 0, 120));
 
-        getContentPane().add(formularioLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 410, 490));
-
-        fondoPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_prov.jpg"))); // NOI18N
-        getContentPane().add(fondoPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
+        fondoPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_login.jpg"))); // NOI18N
+        getContentPane().add(fondoPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
+        controlador.vistaRegistroUsuarios(this);
+    }//GEN-LAST:event_botonRegistroActionPerformed
 
     private void botonMostrarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarContrasenaActionPerformed
         if (textContrasena.getEchoChar() == '\u0000') {
@@ -159,14 +149,6 @@ public class LoginTalleres extends javax.swing.JFrame {
             botonMostrarContrasena.setIcon(new ImageIcon(getClass().getResource("/icons/IconOcultarContrasena.png")));
         }
     }//GEN-LAST:event_botonMostrarContrasenaActionPerformed
-
-    private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
-        controlador.iniciarSesionUsuarios(textUsuario.getText(), textContrasena.getPassword(), this);
-    }//GEN-LAST:event_botonIniciarSesionActionPerformed
-
-    private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
-        controlador.vistaRegistroUsuarios(this);
-    }//GEN-LAST:event_botonRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,11 +193,9 @@ public class LoginTalleres extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton botonIniciarSesion;
+    private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JToggleButton botonMostrarContrasena;
     private javax.swing.JButton botonRegistro;
-    private javax.swing.JLabel fondoCabecera;
-    private javax.swing.JLabel fondoLogin;
     private javax.swing.JLabel fondoPantalla;
     private javax.swing.JPanel formularioLogin;
     private javax.swing.JLabel labelContrasena;
