@@ -11,7 +11,7 @@ import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.eliminarCitaSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerCitaPorNumeroSql;
 import static davidpuertocuenta.autotechtalleres.dao.CitasDAO.obtenerTodasCitasTallerSql;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
-import davidpuertocuenta.autotechtalleres.vistas.talleres.dialogCambiarEstadoCita;
+import davidpuertocuenta.autotechtalleres.vistas.talleres.DialogCambiarEstadoCita;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -157,7 +157,7 @@ public class TallerControlador {
     
     public void vistaDialogCamiarEstado(JFrame vista, JTable tablaCitasTaller){
         try{
-            dialogCambiarEstadoCita ec = new dialogCambiarEstadoCita(vista, true, obtenerCitaPorNumeroSql((Long) tablaCitasTaller.getValueAt(tablaCitasTaller.getSelectedRow(), 0)));
+            DialogCambiarEstadoCita ec = new DialogCambiarEstadoCita(vista, true, obtenerCitaPorNumeroSql((Long) tablaCitasTaller.getValueAt(tablaCitasTaller.getSelectedRow(), 0)));
                 ec.setVisible(true);
         }catch (ArrayIndexOutOfBoundsException e){
               JOptionPane.showMessageDialog(vista, "Debe seleccionar una cita de la lista.", "Información", JOptionPane.INFORMATION_MESSAGE);
