@@ -82,9 +82,9 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         botonCambiarEstado = new javax.swing.JButton();
         botonEliminarCita = new javax.swing.JButton();
         organizadorVistaPrincipal = new javax.swing.JPanel();
+        botonRefrescar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCitasTaller = new javax.swing.JTable();
-        botonRefrescar = new javax.swing.JButton();
         labelCitasDelVehiculo = new javax.swing.JLabel();
         CabeceraVehiculos = new javax.swing.JLabel();
         MenuBarPersonalizada = new javax.swing.JPanel();
@@ -139,6 +139,16 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         organizadorVistaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         organizadorVistaPrincipal.setLayout(null);
 
+        botonRefrescar.setBackground(new java.awt.Color(255, 255, 255));
+        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar_prov .png"))); // NOI18N
+        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRefrescarActionPerformed(evt);
+            }
+        });
+        organizadorVistaPrincipal.add(botonRefrescar);
+        botonRefrescar.setBounds(1190, 70, 60, 37);
+
         tablaCitasTaller.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -162,16 +172,6 @@ public class VistaCitasTaller extends javax.swing.JFrame {
 
         organizadorVistaPrincipal.add(jScrollPane1);
         jScrollPane1.setBounds(10, 140, 1250, 560);
-
-        botonRefrescar.setBackground(new java.awt.Color(255, 255, 255));
-        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar_prov .png"))); // NOI18N
-        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRefrescarActionPerformed(evt);
-            }
-        });
-        organizadorVistaPrincipal.add(botonRefrescar);
-        botonRefrescar.setBounds(1800, 50, 90, 37);
 
         labelCitasDelVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         labelCitasDelVehiculo.setForeground(new java.awt.Color(255, 255, 255));
