@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Autotech - Talleres"/>
+    <Property name="title" type="java.lang.String" value="T&#xe9;rminos y condiciones de uso"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <AccessibilityProperties>
@@ -25,46 +25,61 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="347" max="-2" attributes="0"/>
-              <Component id="botonRechazar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="botonAceptar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="370" max="32767" attributes="0"/>
-          </Group>
-          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="606" max="-2" attributes="0"/>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonRechazar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="botonRechazar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rechazar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRechazarActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="330" y="640" width="100" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonAceptar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aceptar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAceptarActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="510" y="640" width="100" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="10" y="22" width="890" height="590"/>
+        </Constraint>
+      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="jTextArea1">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" value="T&#xe9;rminos y Condiciones de Uso de AutoTech&#xa;Fecha de actualizaci&#xf3;n: 31 de marzo de 2025&#xa;1. Aceptaci&#xf3;n de los T&#xe9;rminos&#xa;Al acceder, registrarse o utilizar la aplicaci&#xf3;n AutoTech (en adelante, &#x201c;la aplicaci&#xf3;n&#x201d;), el usuario acepta y se compromete a cumplir los presentes T&#xe9;rminos y Condiciones. Si no est&#xe1; de acuerdo con alguno de estos t&#xe9;rminos, debe abstenerse de utilizar la aplicaci&#xf3;n.&#xa;Estos t&#xe9;rminos regulan el acceso y uso de AutoTech, as&#xed; como los servicios que esta ofrece.&#xa;2. Descripci&#xf3;n de la Aplicaci&#xf3;n&#xa;AutoTech es una plataforma digital dise&#xf1;ada para facilitar la gesti&#xf3;n de citas en talleres mec&#xe1;nicos. A trav&#xe9;s de la aplicaci&#xf3;n, los usuarios pueden:&#xa;Buscar talleres mec&#xe1;nicos cercanos seg&#xfa;n su ubicaci&#xf3;n.&#xa;&#xa;&#xa;Agendar citas con el taller seleccionado.&#xa;&#xa;&#xa;Recibir notificaciones y recordatorios de citas.&#xa;&#xa;&#xa;Consultar informaci&#xf3;n sobre servicios y tarifas de los talleres.&#xa;&#xa;&#xa;La aplicaci&#xf3;n busca optimizar la comunicaci&#xf3;n entre los usuarios y los talleres, eliminando la necesidad de llamadas telef&#xf3;nicas o correos electr&#xf3;nicos.&#xa;3. Requisitos y Registro de Usuario&#xa;Para acceder a ciertos servicios, el usuario debe registrarse en la aplicaci&#xf3;n proporcionando informaci&#xf3;n veraz y actualizada, incluyendo nombre, correo electr&#xf3;nico y n&#xfa;mero de tel&#xe9;fono.&#xa;El usuario es responsable de:&#xa;Mantener la seguridad de su cuenta y contrase&#xf1;a.&#xa;&#xa;&#xa;Notificar de inmediato cualquier uso no autorizado de su cuenta.&#xa;&#xa;&#xa;Proporcionar datos exactos y completos al registrarse.&#xa;&#xa;&#xa;El incumplimiento de estos requisitos puede dar lugar a la suspensi&#xf3;n o eliminaci&#xf3;n de la cuenta del usuario.&#xa;&#xa;4. Uso Permitido y Restricciones&#xa;El usuario se compromete a utilizar la aplicaci&#xf3;n de manera responsable y conforme a la ley. Est&#xe1; estrictamente prohibido:&#xa;Usar la aplicaci&#xf3;n con fines fraudulentos o ilegales.&#xa;Suplantar la identidad de otra persona o proporcionar informaci&#xf3;n falsa.&#xa;Intentar acceder sin autorizaci&#xf3;n a otras cuentas o sistemas.&#xa;Publicar contenido ofensivo, discriminatorio o que infrinja derechos de terceros.&#xa;Manipular, alterar o modificar el c&#xf3;digo de la aplicaci&#xf3;n.&#xa;&#xa;El incumplimiento de estas normas puede resultar en la suspensi&#xf3;n del acceso a la aplicaci&#xf3;n y en acciones legales, si corresponde.&#xa;&#xa;5. Responsabilidad y Disponibilidad del Servicio&#xa;La aplicaci&#xf3;n AutoTech se ofrece &#x201c;tal cual&#x201d; y &#x201c;seg&#xfa;n disponibilidad&#x201d;, sin garant&#xed;as de que el servicio sea ininterrumpido o libre de errores.&#xa;AutoTech no se responsabiliza por problemas t&#xe9;cnicos que puedan afectar el acceso o la funcionalidad de la aplicaci&#xf3;n.&#xa;No garantizamos que los talleres disponibles en la aplicaci&#xf3;n tengan citas en el horario deseados&#xa;AutoTech no se hace responsable de la calidad de los servicios prestados por los talleres, ya que act&#xfa;a solo como intermediario.&#xa;&#xa;El usuario acepta que el uso de la aplicaci&#xf3;n es bajo su propio riesgo.&#xa;&#xa;6. Pol&#xed;tica de Privacidad y Protecci&#xf3;n de Datos&#xa;&#xa;El tratamiento de los datos personales del usuario se realizar&#xe1; de acuerdo con nuestra Pol&#xed;tica de Privacidad, garantizando el cumplimiento de la normativa vigente sobre protecci&#xf3;n de datos.&#xa;Los datos personales recolectados pueden incluir nombre, correo electr&#xf3;nico, tel&#xe9;fono y ubicaci&#xf3;n, los cuales ser&#xe1;n utilizados exclusivamente para el funcionamiento de la aplicaci&#xf3;n.&#xa;&#xa;El usuario tiene derecho a:&#xa;Acceder a sus datos personales.&#xa;Solicitar la correcci&#xf3;n o eliminaci&#xf3;n de sus datos.&#xa;Retirar su consentimiento para el uso de datos personales en cualquier momento.&#xa;&#xa;7. Propiedad Intelectual&#xa;Todos los elementos de la aplicaci&#xf3;n, incluyendo su dise&#xf1;o, c&#xf3;digo fuente, logotipos, textos y gr&#xe1;ficos, son propiedad de AutoTech o de sus licenciantes y est&#xe1;n protegidos por las leyes de propiedad intelectual.&#xa;Est&#xe1; prohibida la reproducci&#xf3;n, distribuci&#xf3;n, modificaci&#xf3;n o uso comercial de cualquier contenido sin autorizaci&#xf3;n expresa.&#xa;&#xa;8. Modificaciones de los T&#xe9;rminos y Condiciones&#xa;AutoTech se reserva el derecho de modificar estos t&#xe9;rminos en cualquier momento. En caso de cambios significativos, se notificar&#xe1; a los usuarios mediante un aviso en la aplicaci&#xf3;n o por correo electr&#xf3;nico.&#xa;El uso continuado de la aplicaci&#xf3;n tras la notificaci&#xf3;n de cambios implica la aceptaci&#xf3;n de los nuevos t&#xe9;rminos.&#xa;&#xa;9. Suspensi&#xf3;n y Terminaci&#xf3;n del Servicio&#xa;AutoTech puede suspender o cancelar el acceso de un usuario en los siguientes casos:&#xa;&#xa;Incumplimiento de estos t&#xe9;rminos.&#xa;Uso indebido de la aplicaci&#xf3;n.&#xa;Actividades fraudulentas o ilegales.&#xa;&#xa;En caso de terminaci&#xf3;n del servicio, el usuario perder&#xe1; el acceso a su cuenta y a sus datos almacenados en la aplicaci&#xf3;n.&#xa;&#xa;10. Legislaci&#xf3;n Aplicable y Jurisdicci&#xf3;n&#xa;Estos t&#xe9;rminos y condiciones se rigen por las leyes de Espa&#xf1;a . Cualquier disputa relacionada con la aplicaci&#xf3;n ser&#xe1; sometida a la jurisdicci&#xf3;n de los tribunales de La Comunidad De Madrid.&#xa;&#xa;11. Contacto&#xa;Para consultas, quejas o sugerencias, el usuario puede ponerse en contacto con AutoTech a trav&#xe9;s del correo electr&#xf3;nico: tecnicos@autotech.com .&#xa;"/>
           </Properties>
@@ -74,21 +89,17 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="botonRechazar">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rechazar"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/stiles/fondo_formularios.jpg"/>
+        </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRechazarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonAceptar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Aceptar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAceptarActionPerformed"/>
-      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="910" height="700"/>
+        </Constraint>
+      </Constraints>
     </Component>
   </SubComponents>
 </Form>

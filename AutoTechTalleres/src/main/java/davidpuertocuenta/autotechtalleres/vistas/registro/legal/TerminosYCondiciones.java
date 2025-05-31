@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package davidpuertocuenca.autotech.vistas.registro.legal;
+package davidpuertocuenta.autotechtalleres.vistas.registro.legal;
 
+import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloBoton;
 import javax.swing.SwingUtilities;
 
 /**
  *
- * @author David
+ * @author David Puerto Cuenca
  */
 public class TerminosYCondiciones extends javax.swing.JDialog {
 
@@ -20,6 +21,10 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        //Estilos FrontEnd
+        aplicarEstiloBoton(botonRechazar);
+        aplicarEstiloBoton(botonAceptar);
+        
         //Usado para que el ScrollPanel al inicializar la ventana se abra desde arriba del todo.
         SwingUtilities.invokeLater(() -> {
             jScrollPane1.getVerticalScrollBar().setValue(0);
@@ -39,20 +44,16 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         botonRechazar = new javax.swing.JButton();
         botonAceptar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Autotech - Talleres");
+        setTitle("Términos y condiciones de uso");
         setResizable(false);
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Términos y Condiciones de Uso de AutoTech\nFecha de actualización: 31 de marzo de 2025\n1. Aceptación de los Términos\nAl acceder, registrarse o utilizar la aplicación AutoTech (en adelante, “la aplicación”), el usuario acepta y se compromete a cumplir los presentes Términos y Condiciones. Si no está de acuerdo con alguno de estos términos, debe abstenerse de utilizar la aplicación.\nEstos términos regulan el acceso y uso de AutoTech, así como los servicios que esta ofrece.\n2. Descripción de la Aplicación\nAutoTech es una plataforma digital diseñada para facilitar la gestión de citas en talleres mecánicos. A través de la aplicación, los usuarios pueden:\nBuscar talleres mecánicos cercanos según su ubicación.\n\n\nAgendar citas con el taller seleccionado.\n\n\nRecibir notificaciones y recordatorios de citas.\n\n\nConsultar información sobre servicios y tarifas de los talleres.\n\n\nLa aplicación busca optimizar la comunicación entre los usuarios y los talleres, eliminando la necesidad de llamadas telefónicas o correos electrónicos.\n3. Requisitos y Registro de Usuario\nPara acceder a ciertos servicios, el usuario debe registrarse en la aplicación proporcionando información veraz y actualizada, incluyendo nombre, correo electrónico y número de teléfono.\nEl usuario es responsable de:\nMantener la seguridad de su cuenta y contraseña.\n\n\nNotificar de inmediato cualquier uso no autorizado de su cuenta.\n\n\nProporcionar datos exactos y completos al registrarse.\n\n\nEl incumplimiento de estos requisitos puede dar lugar a la suspensión o eliminación de la cuenta del usuario.\n\n4. Uso Permitido y Restricciones\nEl usuario se compromete a utilizar la aplicación de manera responsable y conforme a la ley. Está estrictamente prohibido:\nUsar la aplicación con fines fraudulentos o ilegales.\nSuplantar la identidad de otra persona o proporcionar información falsa.\nIntentar acceder sin autorización a otras cuentas o sistemas.\nPublicar contenido ofensivo, discriminatorio o que infrinja derechos de terceros.\nManipular, alterar o modificar el código de la aplicación.\n\nEl incumplimiento de estas normas puede resultar en la suspensión del acceso a la aplicación y en acciones legales, si corresponde.\n\n5. Responsabilidad y Disponibilidad del Servicio\nLa aplicación AutoTech se ofrece “tal cual” y “según disponibilidad”, sin garantías de que el servicio sea ininterrumpido o libre de errores.\nAutoTech no se responsabiliza por problemas técnicos que puedan afectar el acceso o la funcionalidad de la aplicación.\nNo garantizamos que los talleres disponibles en la aplicación tengan citas en el horario deseados\nAutoTech no se hace responsable de la calidad de los servicios prestados por los talleres, ya que actúa solo como intermediario.\n\nEl usuario acepta que el uso de la aplicación es bajo su propio riesgo.\n\n6. Política de Privacidad y Protección de Datos\n\nEl tratamiento de los datos personales del usuario se realizará de acuerdo con nuestra Política de Privacidad, garantizando el cumplimiento de la normativa vigente sobre protección de datos.\nLos datos personales recolectados pueden incluir nombre, correo electrónico, teléfono y ubicación, los cuales serán utilizados exclusivamente para el funcionamiento de la aplicación.\n\nEl usuario tiene derecho a:\nAcceder a sus datos personales.\nSolicitar la corrección o eliminación de sus datos.\nRetirar su consentimiento para el uso de datos personales en cualquier momento.\n\n7. Propiedad Intelectual\nTodos los elementos de la aplicación, incluyendo su diseño, código fuente, logotipos, textos y gráficos, son propiedad de AutoTech o de sus licenciantes y están protegidos por las leyes de propiedad intelectual.\nEstá prohibida la reproducción, distribución, modificación o uso comercial de cualquier contenido sin autorización expresa.\n\n8. Modificaciones de los Términos y Condiciones\nAutoTech se reserva el derecho de modificar estos términos en cualquier momento. En caso de cambios significativos, se notificará a los usuarios mediante un aviso en la aplicación o por correo electrónico.\nEl uso continuado de la aplicación tras la notificación de cambios implica la aceptación de los nuevos términos.\n\n9. Suspensión y Terminación del Servicio\nAutoTech puede suspender o cancelar el acceso de un usuario en los siguientes casos:\n\nIncumplimiento de estos términos.\nUso indebido de la aplicación.\nActividades fraudulentas o ilegales.\n\nEn caso de terminación del servicio, el usuario perderá el acceso a su cuenta y a sus datos almacenados en la aplicación.\n\n10. Legislación Aplicable y Jurisdicción\nEstos términos y condiciones se rigen por las leyes de España . Cualquier disputa relacionada con la aplicación será sometida a la jurisdicción de los tribunales de La Comunidad De Madrid.\n\n11. Contacto\nPara consultas, quejas o sugerencias, el usuario puede ponerse en contacto con AutoTech a través del correo electrónico: tecnicos@autotech.com .\n");
-        jScrollPane1.setViewportView(jTextArea1);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         botonRechazar.setText("Rechazar");
         botonRechazar.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +61,7 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
                 botonRechazarActionPerformed(evt);
             }
         });
+        getContentPane().add(botonRechazar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, 100, 30));
 
         botonAceptar.setText("Aceptar");
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,30 +69,21 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
                 botonAceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, 100, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(347, 347, 347)
-                .addComponent(botonRechazar)
-                .addGap(44, 44, 44)
-                .addComponent(botonAceptar)
-                .addContainerGap(370, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonRechazar)
-                    .addComponent(botonAceptar))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(102, 102, 102));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Términos y Condiciones de Uso de AutoTech\nFecha de actualización: 31 de marzo de 2025\n1. Aceptación de los Términos\nAl acceder, registrarse o utilizar la aplicación AutoTech (en adelante, “la aplicación”), el usuario acepta y se compromete a cumplir los presentes Términos y Condiciones. Si no está de acuerdo con alguno de estos términos, debe abstenerse de utilizar la aplicación.\nEstos términos regulan el acceso y uso de AutoTech, así como los servicios que esta ofrece.\n2. Descripción de la Aplicación\nAutoTech es una plataforma digital diseñada para facilitar la gestión de citas en talleres mecánicos. A través de la aplicación, los usuarios pueden:\nBuscar talleres mecánicos cercanos según su ubicación.\n\n\nAgendar citas con el taller seleccionado.\n\n\nRecibir notificaciones y recordatorios de citas.\n\n\nConsultar información sobre servicios y tarifas de los talleres.\n\n\nLa aplicación busca optimizar la comunicación entre los usuarios y los talleres, eliminando la necesidad de llamadas telefónicas o correos electrónicos.\n3. Requisitos y Registro de Usuario\nPara acceder a ciertos servicios, el usuario debe registrarse en la aplicación proporcionando información veraz y actualizada, incluyendo nombre, correo electrónico y número de teléfono.\nEl usuario es responsable de:\nMantener la seguridad de su cuenta y contraseña.\n\n\nNotificar de inmediato cualquier uso no autorizado de su cuenta.\n\n\nProporcionar datos exactos y completos al registrarse.\n\n\nEl incumplimiento de estos requisitos puede dar lugar a la suspensión o eliminación de la cuenta del usuario.\n\n4. Uso Permitido y Restricciones\nEl usuario se compromete a utilizar la aplicación de manera responsable y conforme a la ley. Está estrictamente prohibido:\nUsar la aplicación con fines fraudulentos o ilegales.\nSuplantar la identidad de otra persona o proporcionar información falsa.\nIntentar acceder sin autorización a otras cuentas o sistemas.\nPublicar contenido ofensivo, discriminatorio o que infrinja derechos de terceros.\nManipular, alterar o modificar el código de la aplicación.\n\nEl incumplimiento de estas normas puede resultar en la suspensión del acceso a la aplicación y en acciones legales, si corresponde.\n\n5. Responsabilidad y Disponibilidad del Servicio\nLa aplicación AutoTech se ofrece “tal cual” y “según disponibilidad”, sin garantías de que el servicio sea ininterrumpido o libre de errores.\nAutoTech no se responsabiliza por problemas técnicos que puedan afectar el acceso o la funcionalidad de la aplicación.\nNo garantizamos que los talleres disponibles en la aplicación tengan citas en el horario deseados\nAutoTech no se hace responsable de la calidad de los servicios prestados por los talleres, ya que actúa solo como intermediario.\n\nEl usuario acepta que el uso de la aplicación es bajo su propio riesgo.\n\n6. Política de Privacidad y Protección de Datos\n\nEl tratamiento de los datos personales del usuario se realizará de acuerdo con nuestra Política de Privacidad, garantizando el cumplimiento de la normativa vigente sobre protección de datos.\nLos datos personales recolectados pueden incluir nombre, correo electrónico, teléfono y ubicación, los cuales serán utilizados exclusivamente para el funcionamiento de la aplicación.\n\nEl usuario tiene derecho a:\nAcceder a sus datos personales.\nSolicitar la corrección o eliminación de sus datos.\nRetirar su consentimiento para el uso de datos personales en cualquier momento.\n\n7. Propiedad Intelectual\nTodos los elementos de la aplicación, incluyendo su diseño, código fuente, logotipos, textos y gráficos, son propiedad de AutoTech o de sus licenciantes y están protegidos por las leyes de propiedad intelectual.\nEstá prohibida la reproducción, distribución, modificación o uso comercial de cualquier contenido sin autorización expresa.\n\n8. Modificaciones de los Términos y Condiciones\nAutoTech se reserva el derecho de modificar estos términos en cualquier momento. En caso de cambios significativos, se notificará a los usuarios mediante un aviso en la aplicación o por correo electrónico.\nEl uso continuado de la aplicación tras la notificación de cambios implica la aceptación de los nuevos términos.\n\n9. Suspensión y Terminación del Servicio\nAutoTech puede suspender o cancelar el acceso de un usuario en los siguientes casos:\n\nIncumplimiento de estos términos.\nUso indebido de la aplicación.\nActividades fraudulentas o ilegales.\n\nEn caso de terminación del servicio, el usuario perderá el acceso a su cuenta y a sus datos almacenados en la aplicación.\n\n10. Legislación Aplicable y Jurisdicción\nEstos términos y condiciones se rigen por las leyes de España . Cualquier disputa relacionada con la aplicación será sometida a la jurisdicción de los tribunales de La Comunidad De Madrid.\n\n11. Contacto\nPara consultas, quejas o sugerencias, el usuario puede ponerse en contacto con AutoTech a través del correo electrónico: tecnicos@autotech.com .\n");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 22, 890, 590));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stiles/fondo_formularios.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 700));
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -133,6 +126,7 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(TerminosYCondiciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -152,6 +146,7 @@ public class TerminosYCondiciones extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonRechazar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables

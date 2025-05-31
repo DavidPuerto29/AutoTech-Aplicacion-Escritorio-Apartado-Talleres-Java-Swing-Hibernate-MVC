@@ -4,10 +4,10 @@
  */
 package davidpuertocuenta.autotechtalleres.controladores;
 
-import davidpuertocuenca.autotech.vistas.registro.legal.TerminosYCondiciones;
 import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.vistas.login.LoginTalleres;
 import davidpuertocuenta.autotechtalleres.vistas.registro.RegistroUsuariosPaso2;
+import davidpuertocuenta.autotechtalleres.vistas.registro.legal.TerminosYCondiciones;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
