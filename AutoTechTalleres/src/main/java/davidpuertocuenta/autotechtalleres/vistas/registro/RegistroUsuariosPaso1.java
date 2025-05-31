@@ -150,6 +150,8 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     private void initComponents() {
 
         formularioRegistro = new javax.swing.JPanel();
+        botonMostrarContrasenaVerificar = new javax.swing.JToggleButton();
+        botonMostrarContrasena = new javax.swing.JToggleButton();
         labelIniciarSesion = new javax.swing.JLabel();
         labelContrasena2 = new javax.swing.JLabel();
         labelUsuario1 = new javax.swing.JLabel();
@@ -177,6 +179,30 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         formularioRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        botonMostrarContrasenaVerificar.setBackground(new java.awt.Color(255, 255, 255));
+        botonMostrarContrasenaVerificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png"))); // NOI18N
+        botonMostrarContrasenaVerificar.setBorder(null);
+        botonMostrarContrasenaVerificar.setContentAreaFilled(false);
+        botonMostrarContrasenaVerificar.setFocusPainted(false);
+        botonMostrarContrasenaVerificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMostrarContrasenaVerificarActionPerformed(evt);
+            }
+        });
+        formularioRegistro.add(botonMostrarContrasenaVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 40, 40));
+
+        botonMostrarContrasena.setBackground(new java.awt.Color(255, 255, 255));
+        botonMostrarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png"))); // NOI18N
+        botonMostrarContrasena.setBorder(null);
+        botonMostrarContrasena.setContentAreaFilled(false);
+        botonMostrarContrasena.setFocusPainted(false);
+        botonMostrarContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMostrarContrasenaActionPerformed(evt);
+            }
+        });
+        formularioRegistro.add(botonMostrarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 40, 40));
 
         labelIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -292,6 +318,26 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldContrasenaActionPerformed
 
+    private void botonMostrarContrasenaVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarContrasenaVerificarActionPerformed
+        if (fieldContrasenaVerificar.getEchoChar() == '\u0000') {
+            fieldContrasenaVerificar.setEchoChar('•');
+            botonMostrarContrasenaVerificar.setIcon(new ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png")));
+        } else {
+            fieldContrasenaVerificar.setEchoChar('\u0000');
+            botonMostrarContrasenaVerificar.setIcon(new ImageIcon(getClass().getResource("/icons/IconOcultarContrasena.png")));
+        }
+    }//GEN-LAST:event_botonMostrarContrasenaVerificarActionPerformed
+
+    private void botonMostrarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarContrasenaActionPerformed
+        if (fieldContrasena.getEchoChar() == '\u0000') {
+            fieldContrasena.setEchoChar('•');
+            botonMostrarContrasena.setIcon(new ImageIcon(getClass().getResource("/icons/IconMostrarContrasena.png")));
+        } else {
+            fieldContrasena.setEchoChar('\u0000');
+            botonMostrarContrasena.setIcon(new ImageIcon(getClass().getResource("/icons/IconOcultarContrasena.png")));
+        }
+    }//GEN-LAST:event_botonMostrarContrasenaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -333,6 +379,8 @@ public class RegistroUsuariosPaso1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonContinuar;
+    private javax.swing.JToggleButton botonMostrarContrasena;
+    private javax.swing.JToggleButton botonMostrarContrasenaVerificar;
     private javax.swing.JCheckBox checkTerminosYCondiciones;
     private javax.swing.JPasswordField fieldContrasena;
     private javax.swing.JPasswordField fieldContrasenaVerificar;
