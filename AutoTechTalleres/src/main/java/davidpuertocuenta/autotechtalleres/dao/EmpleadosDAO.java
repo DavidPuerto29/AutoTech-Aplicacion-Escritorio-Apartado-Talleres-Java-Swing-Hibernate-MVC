@@ -42,7 +42,7 @@ public class EmpleadosDAO {
         }
     }
     
-    public static Empleados obtenerEmpleadorPorDniSql(String dni){
+    public static Empleados obtenerEmpleadoPorDniSql(String dni){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Empleados> q = session.createNamedQuery("get_empleados_dni", Empleados.class);
                 q.setParameter("dniCliente", dni);

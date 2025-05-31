@@ -7,7 +7,7 @@ package davidpuertocuenta.autotechtalleres.vistas.registro;
 import davidpuertocuenta.autotechtalleres.clases.Empleados;
 import davidpuertocuenta.autotechtalleres.controladores.RegistroControlador;
 import static davidpuertocuenta.autotechtalleres.dao.EmpleadosDAO.crearEmpleadoSql;
-import static davidpuertocuenta.autotechtalleres.dao.UsuariosDAO.obtenerUsuarioPorDniSql;
+import static davidpuertocuenta.autotechtalleres.dao.EmpleadosDAO.obtenerEmpleadoPorDniSql;
 import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloBoton;
 import static davidpuertocuenta.autotechtalleres.util.Estilos.aplicarEstiloTextField;
 import java.awt.event.ActionEvent;
@@ -83,7 +83,7 @@ public class RegistroUsuariosPaso2 extends javax.swing.JFrame {
         boolean formatoCorrecto = true;
         
         //Comprobación de que el dni no esta ya en uso.
-        if(obtenerUsuarioPorDniSql(fieldDni.getText()) != null){
+        if(obtenerEmpleadoPorDniSql(fieldDni.getText()) != null){
             formatoCorrecto = false;
                 textoErrorDni.setText("Dni ya en uso.");
                     textoErrorDni.setIcon(iconoError);  

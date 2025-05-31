@@ -140,14 +140,14 @@ public class VistaCitasTaller extends javax.swing.JFrame {
         organizadorVistaPrincipal.setLayout(null);
 
         botonRefrescar.setBackground(new java.awt.Color(255, 255, 255));
-        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar_prov .png"))); // NOI18N
+        botonRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icono_actualizar.png"))); // NOI18N
         botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRefrescarActionPerformed(evt);
             }
         });
         organizadorVistaPrincipal.add(botonRefrescar);
-        botonRefrescar.setBounds(1190, 70, 60, 37);
+        botonRefrescar.setBounds(1190, 70, 60, 40);
 
         tablaCitasTaller.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
