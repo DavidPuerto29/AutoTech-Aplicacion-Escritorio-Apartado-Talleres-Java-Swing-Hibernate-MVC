@@ -125,6 +125,11 @@ public class LoginTalleres extends javax.swing.JFrame {
         formularioLogin.add(labelUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 60, -1));
 
         botonIniciarSesion.setText("Login");
+        botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIniciarSesionActionPerformed(evt);
+            }
+        });
         formularioLogin.add(botonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 100, 30));
 
         getContentPane().add(formularioLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 410, 450));
@@ -149,6 +154,10 @@ public class LoginTalleres extends javax.swing.JFrame {
             botonMostrarContrasena.setIcon(new ImageIcon(getClass().getResource("/icons/IconOcultarContrasena.png")));
         }
     }//GEN-LAST:event_botonMostrarContrasenaActionPerformed
+
+    private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
+         controlador.iniciarSesionUsuarios(textUsuario.getText(), textContrasena.getPassword(), LoginTalleres.this);
+    }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
