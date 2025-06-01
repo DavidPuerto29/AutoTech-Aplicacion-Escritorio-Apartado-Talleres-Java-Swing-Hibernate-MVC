@@ -56,7 +56,7 @@ public class DialogCambiarEstadoCita extends javax.swing.JDialog {
         modificarEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelEstadoCita.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEstadoCita.setText("Estado de la cita.");
+        jLabelEstadoCita.setText("Estado de la cita:");
         modificarEstado.add(jLabelEstadoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 17, -1, -1));
 
         jButtonCancelar.setText("Cancelar");
