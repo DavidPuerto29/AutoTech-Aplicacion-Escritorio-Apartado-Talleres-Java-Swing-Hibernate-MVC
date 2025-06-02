@@ -62,6 +62,5 @@ public class Empleados{
             this.taller = taller;
         }
 
-  
     
 }

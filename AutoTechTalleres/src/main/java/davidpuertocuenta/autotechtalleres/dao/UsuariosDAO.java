@@ -52,17 +52,6 @@ public class UsuariosDAO {
         }
     }
     
-    public static Usuarios loginUsuarioSql(String usuario,String contrasena){    //Creo que obsoleto - PUEDE Q SOBRE COMPROBAR A FINAL DE PROYECTO
-        try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Usuarios> q = session.createNamedQuery("get_usuario_login", Usuarios.class);
-                q.setParameter("username", usuario);
-                    q.setParameter("password", contrasena);
-                        return (Usuarios) q.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-    
      public static List<Usuarios> obtenerTodosUsuariosSql(){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Usuarios> q = session.createNamedQuery("get_todos_usuarios", Usuarios.class);
