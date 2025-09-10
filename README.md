@@ -1,6 +1,6 @@
 Proyecto fin de grado realizado por David Puerto Cuenca.
 
-Aplicación destinada para el uso de los talleres adheridos.
+Aplicación destinada para la gestión de citas de vehiculos en talleres, esta aplicación esta destinada para el uso de los talleres adheridos al sistema.
 
 Instrucciones de ejecución:
 
