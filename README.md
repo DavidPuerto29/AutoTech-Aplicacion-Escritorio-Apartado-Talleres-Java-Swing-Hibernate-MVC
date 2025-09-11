@@ -6,12 +6,15 @@ Aplicación destinada para la gestión de citas de vehiculos en talleres, esta a
 La aplicación se desarrolló en **Java Swing** en NetBeans según los requisitos del proyecto. Aunque sencilla, permite acceder a todas las funcionalidades y refleja la correcta implementación de la arquitectura **MVC** y la lógica de negocio.
 
 ---
+
 ## ⚡ Demostración de la aplicación 
+
+---
 
 <div align="center">
   <img width="686" height="594" alt="-01 Iniciar sesion" src="https://github.com/user-attachments/assets/99b1912d-0574-454c-9800-8b424785308d" />
 </div>
-Pantalla de inicio de la aplicación para empleados de taller. Permite iniciar sesión con una cuenta existente o registrarse para crear una nueva
+Pantalla de inicio de la aplicación para empleados de taller. Permite iniciar sesión con una cuenta existente o registrarse para crear una nueva.
 
 <div align="center">
    <img width="1256" height="702" alt="-02 Registro Paso 1" src="https://github.com/user-attachments/assets/cc504b1d-d559-4972-aa05-0a09d7c34a7c" />
