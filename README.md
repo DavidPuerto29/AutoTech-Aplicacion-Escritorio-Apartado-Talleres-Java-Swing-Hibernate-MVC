@@ -1,4 +1,4 @@
-🛠️ AutoTech – Gestión para Talleres y Empleados 
+🛠️ AutoTech – Gestión para Talleres
 
 Esta aplicación está destinada a los talleres adheridos al sistema.
 Permite gestionar citas de vehículos de manera sencilla y eficiente, proporcionando a los talleres una herramienta básica para organizar su agenda.
