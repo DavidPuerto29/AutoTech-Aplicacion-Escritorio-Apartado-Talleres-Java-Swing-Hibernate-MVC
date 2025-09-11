@@ -1,4 +1,7 @@
-Aplicación destinada para la gestión de citas de vehiculos en talleres, esta aplicación esta destinada para el uso de los talleres adheridos al sistema.
+🛠️ AutoTech – Gestión para Talleres y Empleados 
+
+Esta aplicación está destinada a los talleres adheridos al sistema y a los administradores de la plataforma.
+Permite gestionar usuarios, talleres, empleados y citas, ofreciendo un control completo sobre los recursos y operaciones del sistema, asegurando que la información se mantenga organizada y accesible.
 
 ---
 
@@ -33,7 +36,7 @@ Una vez que el empleado inicie sesión, podrá acceder a las citas asignadas al 
 
 ---
 
-## 🛠️ Datos técnicos 🛠
+## 🛠️ Datos técnicos 
 
 ---
 
